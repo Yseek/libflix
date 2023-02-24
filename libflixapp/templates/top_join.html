@@ -5,6 +5,41 @@
     <link rel="stylesheet" href="{% static 'css/styles_yun.css' %}">
     <meta charset="UTF-8">
     <title>Modal</title>
+    <script>
+        function check(){
+            var check_=0;
+            "{% for mem in member %}"
+                if("{{mem.email}}"==f.email.value){
+                    alert("존재하는 이메일입니다.")
+                    check_=1;
+                }
+            "{% endfor %}"
+
+            if((f.pwd.value).length < 5){
+                alert("비밀번호는 6자리 이상으로 설정해주세요.")
+                check_=1;
+            }else if(f.pwd.value != f.pwd_check.value){
+                alert("비밀번호가 다릅니다.")
+                check_=1;
+            }
+
+            "{% for mem in member %}"
+                if("{{mem.nickname}}"==f.nick.value){
+                    alert("존재하는 닉네임입니다.")
+                    check_=1;
+                }
+            "{% endfor %}"
+            
+            if(!f.birth.value){
+                alert("생년월일을 선택해주세요.")
+                check_=1;
+            }
+            if(check_ != 1){
+                f.submit();
+            }
+            check_=0;
+        }
+    </script>
     <style>
         #modal.modal-overlay {
             width: 100%;
@@ -102,7 +137,7 @@
                         </tr>
                         <tr>
                             <th>
-                                <input type="button" value="회원가입" onclick="f.submit()">
+                                <input type="button" value="회원가입" onclick="check()">
                                 <input type="button" value="취소" onclick="history.back(-2)">
                             </th>
                         </tr>

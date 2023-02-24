@@ -5,6 +5,25 @@
     <link rel="stylesheet" href="{% static 'css/styles_yun.css' %}">
     <meta charset="UTF-8">
     <title>Modal</title>
+    <script>
+        function check(){
+            var msg ="";
+            var check ="";
+            "{% for mem in member %}"
+            if(("{{mem.email}}" == lo.email.value) && ("{{mem.pwd}}" == lo.pwd.value)){
+                lo.submit();
+                check="있음";
+            }
+            "{% endfor %}"
+            if(check != "있음"){
+                msg="회원정보가 없습니다.";
+            }
+            if(msg=="회원정보가 없습니다."){
+                alert("회원정보가 없습니다.");
+            }
+            msg="";
+        }
+    </script>
     <style>
         #modal.modal-overlay {
             width: 100%;
@@ -90,23 +109,25 @@
                         </tr>
                         <tr>
                             <th>
-                                <button type="submit">로그인</button>
+                                <input type="button" value="로그인" onclick="check()">
                 </form>
                                 <form name="push_url" action="top_join" method="get">
                                 <input type="hidden" name="urls" id="data" value="" />
-                                <input type="button" value="회원가입" onclick="push_url.check()"></form>
+                                <input type="button" value="회원가입" onclick="push_url.submit()"></form>
                             </th>
                         </tr>
                     </table>
             </div>
         </div>
     </div>
+
     <script>
-        const loremIpsum = document.getElementById("lorem-ipsum")
-        fetch(document.referrer)
+            const loremIpsum = document.getElementById("lorem-ipsum")
+            fetch(document.referrer)
             .then(response => response.text())
             .then(result => loremIpsum.innerHTML = result)
-        var url = document.referrer;
-	    document.getElementById("data").value=url;
+            var url = document.referrer;
+            document.getElementById("data").value=url;
     </script>
+
 </body></html>
