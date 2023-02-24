@@ -76,24 +76,22 @@
   }
 }
 
-#bg{
-  background: url('https://assets.nflxext.com/ffe/siteui/vlv3/9737377e-a430-4d13-ad6c-874c54837c49/945eec79-6856-4d95-b4c6-83ff5292f33d/KR-ko-20220111-popsignuptwoweeks-perspective_alpha_website_large.jpg');
-  /*!background:url('img/bg.png') no-repeat;*/
-  min-height: 100%;
-  min-width: 1024px;
-  width: 100%;
-  height: auto;
-  position: fixed;
+body{
+  margin: 0;
+  height: 100%;
+  background-color: black;
 }
-
-#bg:before{
+section{
+  height: 1010px;
+  background: url('https://assets.nflxext.com/ffe/siteui/vlv3/9737377e-a430-4d13-ad6c-874c54837c49/945eec79-6856-4d95-b4c6-83ff5292f33d/KR-ko-20220111-popsignuptwoweeks-perspective_alpha_website_large.jpg');
+}
+section::before{
   content: '';
   background-image: linear-gradient(to right, black, transparent);
   position: absolute;
-	left: 0;
-  /*height:auto;*/
-  width:50%;
-
+  left: 0;
+  height: 1010px;
+  width: 50%;
 }
 
 body {
@@ -319,34 +317,6 @@ figure {
 img,
 svg {
   vertical-align: middle;
-}
-
-table {
-  caption-side: bottom;
-  border-collapse: collapse;
-}
-
-caption {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  color: #6c757d;
-  text-align: left;
-}
-
-th {
-  text-align: inherit;
-  text-align: -webkit-match-parent;
-}
-
-thead,
-tbody,
-tfoot,
-tr,
-td,
-th {
-  border-color: inherit;
-  border-style: solid;
-  border-width: 0;
 }
 
 label {
@@ -11321,9 +11291,43 @@ textarea.form-control-lg {
   width: 800px;
   height: 450px;
   border: 5px solid transparent;
-  border-radius: 20px;
+  border-radius: 10px;
   background-image: linear-gradient(#444444, #444444), linear-gradient(to right, #fbfcb9be, #ffcdf3aa, #65d3ffaa);
   background-origin: border-box;
   background-clip: content-box, border-box;
   margin: 15px;
 }
+
+.box3 {
+  border-collapse: separate;
+  border-spacing: 10px;
+  width: 800px;
+  text-align: center;
+  font-size: 15px;
+  font-family: 'sans-serif'; 
+  color:white;
+  border: 5px solid transparent;
+  border-radius: 10px;
+  background-image: linear-gradient(rgba( 0, 0, 0, 0.85 ),#000), linear-gradient(to right, #fbfcb9be, #ffcdf3aa, #65d3ffaa);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+
+}
+
+
+.tab_etc{     
+  border-collapse: separate;
+  border-spacing: 10px;
+  text-align: center;
+  font-size: 15px;
+  font-family: 'sans-serif'; 
+  color:white;
+  background-color: rgba( 0, 0, 0, 0.9 ); 
+  width:800px;
+  border: 5px solid transparent;
+  border-radius: 10px;
+  border-image: linear-gradient(to right, #fbfcb9be, #ffcdf3aa, #65d3ffaa);
+  background-clip: content-box, border-box;
+  border-image-slice: 1;
+}
+

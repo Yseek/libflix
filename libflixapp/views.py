@@ -3,6 +3,7 @@ from django.template import loader
 from django.http import HttpResponse
 from . models import NoticeBoard, Member,Movies
 import datetime
+from django.http import JsonResponse
 
 def index(request):
     if  request.session.get('login_') is not None:
@@ -10,7 +11,7 @@ def index(request):
     else:
         request.session['nick'] = ""
         request.session['button_name'] = "로그인"
-        request.session['button_dir'] = 'top_login_'
+        request.session['button_dir'] = 'top_login__'
         return render(request,'index.html')
 
 def play(request):
@@ -73,7 +74,7 @@ def update_ok(request,id):
 def login_ok(request):
     x = request.POST['email']
     y = request.POST['pwd']
-    res_data={}
+    # res_data={}
     try:
         login_=Member.objects.get(email=x)
         if login_.pwd== y:
@@ -83,19 +84,25 @@ def login_ok(request):
             request.session['button_dir'] = "logout_"
             return redirect('index')
         else:
-            res_data['error']="비밀번호가 틀렸습니다."
-            return render(request,'top_login.html',res_data)
+            pass
+            # res_data['error']="비밀번호가 틀렸습니다."
+            # return render(request,'top_login.html',res_data)
     except:
-        res_data['error']="아이디가 없습니다."
-        return render(request,'top_login.html',res_data)
+        pass
+        # res_data['error']="아이디가 없습니다."
+        # return render(request,'top_login.html',res_data)
+
 
 def top_login(request):
-    return render(request,'top_login.html')
+    res_data={}
+    res_data['member']=Member.objects.all().values()
+    return render(request,'top_login.html',res_data)
 
 def top_join(request):
     x=request.GET['urls']
     res_data={}
     res_data['url']=x
+    res_data['member']=Member.objects.all().values()
     return render(request,'top_join.html',res_data)
 
 def join_ok(request):
@@ -105,7 +112,7 @@ def join_ok(request):
     nick = request.POST['nick']
     birth = request.POST['birth']
     Member(email=email_, pwd=pwd_, nickname=nick, rdate=birth).save()
-    return redirect('../')
+    return redirect('index')
 
 def logout(request):
     if request.session.get('login_'):
