@@ -94,6 +94,11 @@ section::before{
   width: 50%;
 }
 
+.section_write{
+  height: 950px;
+  background-color:black;
+}
+
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
