@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+                <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <!--favicon-->
+        <link rel="shortcut icon" href="{% static 'imgs/favicon.ico' %}" />
+        <title>LIBFLIX - Life is BEAUTIFUL</title>
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'css/styles_cej.css' %}" rel="stylesheet" />
+    </head>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+    <body>
+        {% include "top.html" %}
+        <!-- Header-->
+        <header class="bg-dark py-4">
+            <div class="container px-3 px-lg-4 my-4">
+                <div class="text-center text-white">
+                    {%load static%}
+                    <a href="#"><img src = "{% static 'img\logo3.png' %}"></a>
+                    <p class="lead fw-normal text-white-50 mb-0">Life is Beautiful with LIBFLIX</p>
+                </div>
+            </div>
+        </header>
+        <!-- Section-->
+        <section id = "bg">
+        <section class="py-5">
+                <div class="container px-4 px-lg-5 mt-5">
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Movie image-->
+                            {%load static%}
+                            <img class="card-img-top" src="{% static 'thumbnail\아바타1.jpg' %}" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">아바타</h5>
+                                    <!-- Product price-->
+                                    장르: SF/판타지
+                                    </div>
+                            </div>
+                            <!-- Product actions-->
+                        <!--Watch버튼 + 별표시-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center">
+                                <form name="watch_1" action="play" method="get">
+                                    <input type="hidden" value="아바타" name="first">
+                                    <a class="btn btn-outline-dark mt-auto" href="#" onclick="watch_1.submit()">Watch</a>
+                                </form>
+                                <div align ="right">
+                                    <!-- 체크박스로 선택 됐는지 안됐는지 확인 바뀔떄마다 changeCheckBox이벤트 발생 -->
+                                    <input class="hidden" type="checkbox" id="star1" onchange="changeCheckBox(event)">
+                                    <!-- label을 사용하여 input을 선택 가능 -->
+                                    <label class="bi-star" for="star1"></label>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!--
+                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>-->
+                            <!-- Movie image-->
+                            {%load static%}
+                            <img class="card-img-top" src="{% static 'thumbnail\해리포터와 비밀의 방.jpg' %}" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Movie name-->
+                                    <h5 class="fw-bolder">해리포터와 비밀의 방</h5>                                
+                                    장르: SF/판타지
+                                </div>
+                            </div>
+
+                        <!--Watch버튼 + 별표시-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="play/{{movies.id}}">Watch</a></div>
+                            <div align ="right"><a class="bi-star" href="#"></a></div>
+                        </div>
+
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            {%load static%}
+                            <img class="card-img-top" src="{% static 'thumbnail\세 얼간이.jpg' %}" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">세 얼간이</h5>
+                                    장르: 코미디
+                                </div>
+                            </div>
+
+                        <!--Watch버튼 + 별표시-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center">
+                                <form name="watch_3" action="play" method="get">
+                                    <input type="hidden" value="세얼간이" name="first">
+                                    <a class="btn btn-outline-dark mt-auto" href="#" onclick="watch_3.submit()">Watch</a>
+                                </form>
+                                <div align ="right"><input class="hidden" type="checkbox" id="star3" onchange="changeCheckBox(event)"> <label class="bi-star" for="star3"></label></div>
+                            </div>
+                        </div>
+
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            {%load static%}
+                            <img class="card-img-top" src="{% static 'thumbnail\맨 인 블랙.jpg' %}" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">맨 인 블랙 3</h5>
+                                    <!-- Product price-->
+                                    장르: SF/판타지
+                                </div>
+                            </div>
+
+                        <!--Watch버튼 + 별표시-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="play/{{movies.id}}">Watch</a></div>
+                            <div align ="right"><a class="bi-star" href="#"></a></div>
+                        </div>
+
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            {%load static%}
+                            <img class="card-img-top" src="{% static 'thumbnail\토탈 리콜.jpg' %}" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">토탈 리콜</h5>
+                                    장르: SF/판타지
+                                </div>
+                            </div>
+
+                        <!--Watch버튼 + 별표시-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="play/{{movies.id}}">Watch</a></div>
+                            <div align ="right"><a class="bi-star" href="#"></a></div>
+                        </div>
+
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            {%load static%}
+                            <img class="card-img-top" src="{% static 'thumbnail\스크림.jpg' %}" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">스크림</h5>
+                                    <!-- Product price-->
+                                    장르: 공포
+                                </div>
+                            </div>
+
+                        <!--Watch버튼 + 별표시-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="play/{{movies.id}}">Watch</a></div>
+                            <div align ="right"><a class="bi-star" href="#"></a></div>
+                        </div>
+
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            {%load static%}
+                            <img class="card-img-top" src="{% static 'thumbnail\엑소시스트.jpg' %}" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">엑소시스트</h5>
+                                    <!-- Product reviews-->
+                                    <!-- Product price-->
+                                    장르: 공포
+                                </div>
+                            </div>
+
+                        <!--Watch버튼 + 별표시-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="play/{{movies.id}}">Watch</a></div>
+                            <div align ="right"><a class="bi-star" href="#"></a></div>
+                        </div>
+
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            {%load static%}
+                            <img class="card-img-top" src="{% static 'thumbnail\오펀.jpg' %}" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">오펀: 천사의 비밀</h5>
+                                    <!-- Product reviews-->
+                                    <!-- Product price-->
+                                    장르: 공포
+                                </div>
+                            </div>
+
+                        <!--Watch버튼 + 별표시-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="play/{{movies.id}}">Watch</a></div>
+                            <div align ="right"><a class="bi-star" href="#"></a></div>
+                        </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Movie image-->
+                            {%load static%}
+                            <img class="card-img-top" src="{% static 'thumbnail\직쏘.jpg' %}" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">직쏘</h5>
+                                    <!-- Product price-->
+                                    장르: 공포
+                                    </div>
+                            </div>
+
+                        <!--Watch버튼 + 별표시-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="play/{{movies.id}}">Watch</a></div>
+                            <div align ="right"><a class="bi-star" href="#"></a></div>
+                        </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Movie image-->
+                            {%load static%}
+                            <img class="card-img-top" src="{% static 'thumbnail\라라랜드.jpg' %}" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">라라랜드</h5>
+                                    <!-- Product price-->
+                                    장르: 로맨스
+                                    </div>
+                            </div>
+
+                        <!--Watch버튼 + 별표시-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="play/{{movies.id}}">Watch</a></div>
+                            <div align ="right"><a class="bi-star" href="#"></a></div>
+                        </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Movie image-->
+                            {%load static%}
+                            <img class="card-img-top" src="{% static 'thumbnail\어바웃타임.jpg' %}" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">어바웃 타임</h5>
+                                    <!-- Product price-->
+                                    장르: 로맨스
+                                    </div>
+                            </div>
+
+                        <!--Watch버튼 + 별표시-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="play/{{movies.id}}">Watch</a></div>
+                            <div align ="right"><a class="bi-star" href="#"></a></div>
+                        </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Movie image-->
+                            {%load static%}
+                            <img class="card-img-top" src="{% static 'thumbnail\미 비포 유.jpg' %}" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">미 비포 유</h5>
+                                    <!-- Product price-->
+                                    장르: 로맨스
+                                    </div>
+                            </div>
+
+                        <!--Watch버튼 + 별표시-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="play/{{movies.id}}">Watch</a></div>
+                            <div align ="right"><a class="bi-star" href="#"></a></div>
+                        </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Movie image-->
+                            {%load static%}
+                            <img class="card-img-top" src="{% static 'thumbnail\비포 선라이즈.jpg' %}" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">비포 선라이즈</h5>
+                                    <!-- Product price-->
+                                    장르: 로맨스
+                                    </div>
+                            </div>
+
+                        <!--Watch버튼 + 별표시-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="play/{{movies.id}}">Watch</a></div>
+                            <div align ="right"><a class="bi-star" href="#"></a></div>
+                        </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Movie image-->
+                            {%load static%}
+                            <img class="card-img-top" src="{% static 'thumbnail\럭.jpg' %}" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">럭</h5>
+                                    <!-- Product price-->
+                                    장르: 애니메이션
+                                    </div>
+                            </div>
+
+                        <!--Watch버튼 + 별표시-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="play/{{movies.id}}">Watch</a></div>
+                            <div align ="right"><a class="bi-star" href="#"></a></div>
+                        </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Movie image-->
+                            {%load static%}
+                            <img class="card-img-top" src="{% static 'thumbnail\버즈 라이트 이어.jpg' %}" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">버즈 라이트이어</h5>
+                                    <!-- Product price-->
+                                    장르: 애니메이션
+                                    </div>
+                            </div>
+
+                        <!--Watch버튼 + 별표시-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="play/{{movies.id}}">Watch</a></div>
+                            <div align ="right"><a class="bi-star" href="#"></a></div>
+                        </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Movie image-->
+                            {%load static%}
+                            <img class="card-img-top" src="{% static 'thumbnail\엘리멘탈.jpg' %}" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">엘리멘탈</h5>
+                                    <!-- Product price-->
+                                    장르: 애니메이션
+                                    </div>
+                            </div>
+
+                        <!--Watch버튼 + 별표시-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="play/{{movies.id}}">Watch</a></div>
+                            <div align ="right"><a class="bi-star" href="#"></a></div>
+                        </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Movie image-->
+                            {%load static%}
+                            <img class="card-img-top" src="{% static 'thumbnail\장화신은 고양이.jpg' %}" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">장화신은 고양이</h5>
+                                    <!-- Product price-->
+                                    장르: 애니메이션
+                                    </div>
+                            </div>
+
+                        <!--Watch버튼 + 별표시-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="play/{{movies.id}}">Watch</a></div>
+                            <div align ="right"><a class="bi-star" href="#"></a></div>
+                        </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Movie image-->
+                            {%load static%}
+                            <img class="card-img-top" src="{% static 'thumbnail\더 플래쉬.jpg' %}" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">더 플래쉬</h5>
+                                    <!-- Product price-->
+                                    장르: 액션
+                                    </div>
+                            </div>
+
+                        <!--Watch버튼 + 별표시-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="play/{{movies.id}}">Watch</a></div>
+                            <div align ="right"><a class="bi-star" href="#"></a></div>
+                        </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Movie image-->
+                            {%load static%}
+                            <img class="card-img-top" src="{% static 'thumbnail\앤트맨3.jpg' %}" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">앤트맨3</h5>
+                                    <!-- Product price-->
+                                    장르: 액션
+                                    </div>
+                            </div>
+
+                        <!--Watch버튼 + 별표시-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="play/{{movies.id}}">Watch</a></div>
+                            <div align ="right"><a class="bi-star" href="#"></a></div>
+                        </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Movie image-->
+                            {%load static%}
+                            <img class="card-img-top" src="{% static 'thumbnail\존윅4.jpg' %}" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">존윅 4</h5>
+                                    <!-- Product price-->
+                                    장르: 액션
+                                    </div>
+                            </div>
+
+                        <!--Watch버튼 + 별표시-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="play/{{movies.id}}">Watch</a></div>
+                            <div align ="right"><a class="bi-star" href="#"></a></div>
+                        </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Movie image-->
+                            {%load static%}
+                            <img class="card-img-top" src="{% static 'thumbnail\크리드2.jpg' %}" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">크리드 2</h5>
+                                    <!-- Product price-->
+                                    장르: 액션
+                                    </div>
+                            </div>
+
+                        <!--Watch버튼 + 별표시-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="play/{{movies.id}}">Watch</a></div>
+                            <div align ="right"><a class="bi-star" href="#"></a></div>
+                        </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Movie image-->
+                            {%load static%}
+                            <img class="card-img-top" src="{% static 'thumbnail\덤 앤 더머.jpg' %}" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">덤 앤 더머</h5>
+                                    <!-- Product price-->
+                                    장르: 코미디
+                                    </div>
+                            </div>
+
+                        <!--Watch버튼 + 별표시-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="play/{{movies.id}}">Watch</a></div>
+                            <div align ="right"><a class="bi-star" href="#"></a></div>
+                        </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Movie image-->
+                            {%load static%}
+                            <img class="card-img-top" src="{% static 'thumbnail\스쿨 오브 락.jpg' %}" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">스쿨 오브 락</h5>
+                                    <!-- Product price-->
+                                    장르: 코미디
+                                    </div>
+                            </div>
+
+                        <!--Watch버튼 + 별표시-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="play/{{movies.id}}">Watch</a></div>
+                            <div align ="right"><a class="bi-star" href="#"></a></div>
+                        </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Movie image-->
+                            {%load static%}
+                            <img class="card-img-top" src="{% static 'thumbnail\핫 칙.jpg' %}" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">핫 칙</h5>
+                                    <!-- Product price-->
+                                    장르: 코미디
+                                    </div>
+                            </div>
+
+                        <!--Watch버튼 + 별표시-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="play/{{movies.id}}">Watch</a></div>
+                            <div align ="right"><a class="bi-star" href="#"></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Fantastic4's Website 2023</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{% static 'js/scripts.js' %}"></script>
+    </section>
+    </body>
+
+    <script type="text/javascript">
+        window.onload = () => {
+            document.querySelectorAll('.hidden').forEach(e => {
+                if (e.checked) {
+                    document.querySelector('[for="'+e.id+'"]').className = "bi-star-fill"
+                    document.querySelector('[for="'+e.id+'"]').style.color="rgb(255, 210, 48)"
+                } else {
+                    document.querySelector('[for="'+e.id+'"]').className = "bi-star"
+                    document.querySelector('[for="'+e.id+'"]').style.color="rgb(0, 0, 0)"
+                }
+            })
+        }
+
+        function changeCheckBox(e) {
+        if (e.target.checked) {
+            document.querySelector('[for="'+e.target.id+'"]').className = "bi-star-fill"
+            document.querySelector('[for="'+e.target.id+'"]').style.color="rgb(255, 210, 48)"
+        } else {
+            document.querySelector('[for="'+e.target.id+'"]').className = "bi-star"
+            document.querySelector('[for="'+e.target.id+'"]').style.color="rgb(0, 0, 0)"
+        }
+    }
+    </script>
+
+</html>

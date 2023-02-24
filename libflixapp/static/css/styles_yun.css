@@ -1,0 +1,70 @@
+.textfield {
+    width: 100%;
+    height: 100%;
+    background-color: beige;
+    resize: none;
+}
+
+.login_tb{
+    width: 300;
+    height: 200;
+}
+.login_tb > td{
+    width: 30%;
+}
+
+#menu ,#box_menu {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+#box_menu > li {
+    float: left;
+    border: 1px solid black;
+}
+
+#menu {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    background-color: brown;
+}
+
+#menu > li {
+    padding: 16px 28px;
+    border-bottom: 1px solid rgba(0, 0, 0, 15);
+}
+
+#box_menu > li:hover #menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+.boardlist{
+    width: 600px;
+    height: 700px;
+    margin-left: 25%;
+    border-top: 1px solid black;
+    border-collapse: collapse;
+}
+
+tbody > th{
+    border-bottom: 1px solid black;
+    border-collapse: collapse;
+}
+
+tbody > tr{
+    border-bottom: 1px solid black;
+    border-collapse: collapse;
+}
+
+tbody > td{
+    border-bottom: 1px solid black;
+    border-collapse: collapse;
+
+}
+
+#bgBoard{
+    background-color: #dce3de;
+}

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>LIBflix - Life is BEAUTIFUL</title>
+        <!-- Favicon-->
+        <link rel="shortcut icon" href="{% static 'imgs/favicon.ico' %}" />
+        <!--<Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'css/styles_hyun.css' %}" rel="stylesheet" />
+    </head>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+    <body>
+        {% include "top.html" %}
+        <!-- Header-->
+        <header class="bg-dark py-4">
+            <div class="container px-3 px-lg-4 my-4">
+                <div class="text-center">
+                    {%load static%}
+                    <img src= "{% static '/imgs/LIBFLIX_logo.png' %}" />
+                    <p class="lead fw-normal text-white-50 mb-0">Life is Beautiful with LIBflix</p>
+                </div>
+            </div>
+        </header>
+        <!-- Section-->
+        <section id = "bg">
+            <section class="py-5">
+                    <div class="container px-4 px-lg-5 mt-5">
+                    <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                        <div class="col mb-5">
+                            <div class="card h-100">
+                            <!-- Product image-->
+                            {%load static%}
+                            <img class="card-img-top" src= "{% static '/imgs/미비포유.jpg' %}" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">미 비포 유</h5>
+                                    <font size = "3">장르: 로맨스</font>
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Watch</a></div>
+
+                                <div align ="right">
+                                    <!-- 체크박스로 선택 됐는지 안됐는지 확인 바뀔떄마다 changeCheckBox이벤트 발생 -->
+                                    <input class="hidden" type="checkbox" id="star1" onchange="changeCheckBox(event)">
+                                    <!-- label을 사용하여 input을 선택 가능 -->
+                                    <label class="bi-star" for="star1"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            {%load static%}
+                            <img class="card-img-top" src= "{% static '/imgs/더플래쉬.jpg' %}" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">더 플래쉬</h5>
+                                    <font size = "3">장르: 액션</font>
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Watch</a></div>
+                                <div align ="right"><input class="hidden" type="checkbox" id="star2" onchange="changeCheckBox(event)"> <label class="bi-star" for="star2"></label></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            {%load static%}
+                            <img class="card-img-top" src= "{% static '/imgs/앤트맨.jpg' %}" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">앤트맨과 와스프:<br>퀀텀매니아</h5>
+                                    <font size = "3">장르: 액션</font>
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Watch</a></div>
+                                <div align ="right"><input class="hidden" type="checkbox" id="star3" onchange="changeCheckBox(event)"> <label class="bi-star" for="star3"></label></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            {%load static%}
+                            <img class="card-img-top" src= "{% static '/imgs/직쏘.jpg' %}" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">직쏘</h5>
+                                    <font size = "3">장르: 공포/스릴러/호러</font>
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Watch</a></div>
+                                <div align ="right"><input class="hidden" type="checkbox" id="star4" onchange="changeCheckBox(event)"> <label class="bi-star" for="star4"></label></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            {%load static%}
+                            <img class="card-img-top" src= "{% static '/imgs/버즈라이트이어.jpg' %}" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">버즈 라이트이어</h5>
+                                    <font size = "3">장르: 애니메이션</font>
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Watch</a></div>
+                                <div align ="right"><input class="hidden" type="checkbox" id="star5" onchange="changeCheckBox(event)"> <label class="bi-star" for="star5"></label></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            {%load static%}
+                            <img class="card-img-top" src= "{% static '/imgs/맨인블랙3.jpg' %}" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">맨 인 블랙3</h5>
+                                    <font size = "3">장르: SF/판타지</font>
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Watch</a></div>
+                                <div align ="right"><input class="hidden" type="checkbox" id="star6" onchange="changeCheckBox(event)"> <label class="bi-star" for="star6"></label></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">&copy; 2023 Fantastic4, Inc .</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{% static 'js/scripts.js' %}"></script>
+    </section>
+    </div>
+    </body>
+    <script type="text/javascript">
+        window.onload = () => {
+            document.querySelectorAll('.hidden').forEach(e => {
+                if (e.checked) {
+                    document.querySelector('[for="'+e.id+'"]').className = "bi-star-fill"
+                    document.querySelector('[for="'+e.id+'"]').style.color="rgb(255, 210, 48)"
+                } else {
+                    document.querySelector('[for="'+e.id+'"]').className = "bi-star"
+                    document.querySelector('[for="'+e.id+'"]').style.color="rgb(0, 0, 0)"
+                }
+            })
+        }
+
+        function changeCheckBox(e) {
+        if (e.target.checked) {
+            document.querySelector('[for="'+e.target.id+'"]').className = "bi-star-fill"
+            document.querySelector('[for="'+e.target.id+'"]').style.color="rgb(255, 210, 48)"
+        } else {
+            document.querySelector('[for="'+e.target.id+'"]').className = "bi-star"
+            document.querySelector('[for="'+e.target.id+'"]').style.color="rgb(0, 0, 0)"
+        }
+    }
+    </script>
+</html>

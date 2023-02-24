@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles_yun.css' %}">
+    <title>수정페이지</title>
+</head>
+<body>
+    {% include "top.html" %}
+    <h3>수정페이지</h3>
+    <hr>
+    <form name="f" action="update_ok/{{update_content.id}}" method="post">
+    {% csrf_token %}
+        <table width="300" height="400">
+            <tr>
+                <td width="70%" height="10%">제목 <input name="title" value="{{update_content.postname}}"></td>
+            </tr>
+            <tr>
+                <td width="70%" height="10%">비밀번호 <input name="pwd" placeholder="입력시 비밀글"></td>
+            </tr>
+            <tr>
+                <td width="90%" height="70%"><textarea class="textfield" name="textfield">{{update_content.contents}}</textarea></td>
+            </tr>
+        </table>
+        <input type="button" value="수정" onclick="f.submit()">
+        <input type="button" value="취소" onclick="history.back()">
+    </form>
+    <!-- Footer-->
+    <footer class="py-5 bg-dark">
+        <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Fantastic4's Website 2023</p></div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="{% static 'js/scripts.js' %}"></script>
+</body>
+</html>
