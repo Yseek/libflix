@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
-<head>
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -14,76 +13,53 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'css/styles_hoya.css' %}" rel="stylesheet" />
         <title>영화재생페이지</title>
-        <style>
-            table th{
-                border: 1px solid gray;
-                border-collapse: collapse;
-                text-align: center;
-                font-size: 15px;
-                font-family: 'sans-serif'; 
-                color:white;
-                background-color: rgba( 0, 0, 0, 0.8 ); 
-                padding: 5px;
-                width:140px;
-			}
-            table td{
-                border: 1px solid gray;
-                border-collapse: collapse;
-                text-align: center;
-                font-size: 15px;
-                font-family: 'sans-serif'; 
-                color:white;
-                background-color: rgba( 0, 0, 0, 0.8 ); 
-                padding: 5px;
-            }
-		</style>
     </head>
-</head>
-<body>
-    {% include "top.html" %}
-    <header class="bg-dark py-4" style="margin-bottom:5px">
-        <div class="container px-3 px-lg-4 my-4">
-            <div class="text-center">
-                {%load static%}
-                <img src= "{% static '/imgs/LIBFLIX_logo.png' %}" />
-                <p class="lead fw-normal text-white-50 mb-0">Life is Beautiful with LIBflix</p>
+    <body style="height:1000px;">
+        <section>
+        {% include "top.html" %}
+        <header class="bg-dark py-4">
+            <div class="container px-3 px-lg-4 my-4">
+                <div class="text-center">
+                    {%load static%}
+                    <img src= "{% static '/imgs/LIBFLIX_logo.png' %}" />
+                    <p class="lead fw-normal text-white-50 mb-0">Life is Beautiful with LIBflix</p>
+                </div>
             </div>
-        </div>
-    </header>
-    <section id = "bg">
-    <center>
-        <body>
-            <video id="thumbnail_" width="800" height="450" preload="none" controls poster="">    
+        </header>
+        <center>
+            <video class="box2" style="margin-top:30px" id="thumbnail_" width="800" height="450" preload="none" controls poster="">    
                 <source id="source_" src="{% static 'video/세 얼간이.mp4' %}" type="video/mp4">
             </video>
-            <table>
-                <tr>
-                    <th>개  봉</th>
-                    <th>등  급</th>
-                    <th>장  르</th>
-                    <th>감  독</th>
-                    <th>런타임</th>
-                </tr>
-                <tr>
-                    <p id="url" style="visibility: hidden;">{{movies.movieurl}}</p>
-                    <p id="thumthum" style="visibility: hidden;">{{movies.moviethum}}</p>
-                    <!-- <p>{% static 'video/세얼간이.mp4' %}</p>  
-                    <p>{% static 'thumbnail/세얼간이.jpg' %}</p>  url 확인용 태그 -->
-                    <td>{{movies.title}}</td>
-                    <td>{{movies.grade}}</td>
-                    <td>{{movies.genre}}</td>
-                    <td>{{movies.director}}</td>
-                    <td>{{movies.rtime}}</td> 
-                </tr>
-            </table>
-    </center>
-</section>
-    <script>
-        x=document.getElementById('url').innerHTML
-        document.getElementById('source_').src=x
+                <table class="box3">
+                    <tr>
+                        <th>개  봉</th>
+                        <th>등  급</th>
+                        <th>장  르</th>
+                        <th>감  독</th>
+                        <th>런타임</th>
+                    </tr>
+                    <tr>
+                        {% comment %} <p id="url" style="visibility: hidden;">{{movies.movieurl}}</p>
+                        <p id="thumthum" style="visibility: hidden;">{{movies.moviethum}}</p> {% endcomment %}
+                        <!-- <p>{% static 'video/세얼간이.mp4' %}</p>  
+                        <p>{% static 'thumbnail/세얼간이.jpg' %}</p>  url 확인용 태그 -->
+                        <td>{{movies.title}}</td>
+                        <td>{{movies.grade}}</td>
+                        <td>{{movies.genre}}</td>
+                        <td>{{movies.director}}</td>
+                        <td>{{movies.rtime}}</td> 
+                    </tr>
+                </table>
+                <p id="url" style="visibility: hidden;">{{movies.movieurl}}</p>
+                <p id="thumthum" style="visibility: hidden;">{{movies.moviethum}}</p>
+        </center>
+            <script>
+                x=document.getElementById('url').innerHTML
+                document.getElementById('source_').src=x
 
-        y=document.getElementById('thumthum').innerHTML
-        document.getElementById('thumbnail_').poster=y
-    </script>
-</body>
+                y=document.getElementById('thumthum').innerHTML
+                document.getElementById('thumbnail_').poster=y
+            </script>
+        </section>
+    </body>
 </html>
