@@ -12,7 +12,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'css/styles_hoya.css' %}" rel="stylesheet" />
-        <title>영화재생페이지</title>
+        <title>영화 : {{movies.title}}</title>
     </head>
     <body style="height:1000px;">
         <section>
@@ -21,7 +21,7 @@
             <div class="container px-3 px-lg-4 my-4">
                 <div class="text-center">
                     {%load static%}
-                    <img src= "{% static '/imgs/LIBFLIX_logo.png' %}" />
+                    <a href="./"><img src = "{% static 'img\logo3.png' %}"></a>
                     <p class="lead fw-normal text-white-50 mb-0">Life is Beautiful with LIBflix</p>
                 </div>
             </div>
@@ -39,8 +39,8 @@
                         <th>런타임</th>
                     </tr>
                     <tr>
-                        <p>{% static 'video/해리포터와비밀의방.mp4' %}</p>  
-                        <p>{% static 'thumbnail/해리포터와비밀의방.jpg' %}</p>  url 확인용 태그
+                        <!-- <p>{% static 'video/세얼간이.mp4' %}</p>  
+                        <p>{% static 'thumbnail/세얼간이.jpg' %}</p>  url 확인용 태그 -->
                         <td>{{movies.title}}</td>
                         <td>{{movies.grade}}</td>
                         <td>{{movies.genre}}</td>
