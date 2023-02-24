@@ -62,7 +62,7 @@
                                     <!-- 체크박스로 선택 됐는지 안됐는지 확인 바뀔떄마다 changeCheckBox이벤트 발생 -->
                                     <input class="hidden" type="checkbox" id="star1" onchange="changeCheckBox(event)">
                                     <!-- label을 사용하여 input을 선택 가능 -->
-                                    <label class="bi-star" for="star1"></label>
+                                    <label class="bi-star" for="star1" style="cursor:pointer;"></label>
                                 </div>
                             </div>
                         </div>
@@ -74,7 +74,7 @@
                             <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>-->
                             <!-- Movie image-->
                             {%load static%}
-                            <img class="card-img-top" src="{% static 'thumbnail\해리포터와 비밀의 방.jpg' %}" alt="..." />
+                            <img class="card-img-top" src="{% static 'thumbnail\해리포터와비밀의방.jpg' %}" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -86,10 +86,19 @@
 
                         <!--Watch버튼 + 별표시-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="play/{{movies.id}}">Watch</a></div>
-                            <div align ="right"><a class="bi-star" href="#"></a></div>
+                            <div class="text-center">
+                                <form name="watch_2" action="play" method="get">
+                                    <input type="hidden" value="해리포터와비밀의방" name="first">
+                                    <a class="btn btn-outline-dark mt-auto" href="#" onclick="watch_2.submit()">Watch</a>
+                                </form>
+                                <div align ="right">
+                                    <!-- 체크박스로 선택 됐는지 안됐는지 확인 바뀔떄마다 changeCheckBox이벤트 발생 -->
+                                    <input class="hidden" type="checkbox" id="star2" onchange="changeCheckBox(event)">
+                                    <!-- label을 사용하여 input을 선택 가능 -->
+                                    <label class="bi-star" for="star2" style="cursor:pointer;"></label>
+                                </div>
+                            </div>
                         </div>
-
                         </div>
                     </div>
                     <div class="col mb-5">
@@ -113,17 +122,18 @@
                                     <input type="hidden" value="세얼간이" name="first">
                                     <a class="btn btn-outline-dark mt-auto" href="#" onclick="watch_3.submit()">Watch</a>
                                 </form>
-                                <div align ="right"><input class="hidden" type="checkbox" id="star3" onchange="changeCheckBox(event)"> <label class="bi-star" for="star3"></label></div>
+                                <div align ="right"><input class="hidden" type="checkbox" id="star3" onchange="changeCheckBox(event)"> 
+                                    <label class="bi-star" for="star3" style="cursor:pointer;"></label>
+                                </div>
                             </div>
                         </div>
-
                         </div>
                     </div>
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
                             {%load static%}
-                            <img class="card-img-top" src="{% static 'thumbnail\맨 인 블랙.jpg' %}" alt="..." />
+                            <img class="card-img-top" src="{% static 'thumbnail\맨인블랙.jpg' %}" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -136,17 +146,27 @@
 
                         <!--Watch버튼 + 별표시-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="play/{{movies.id}}">Watch</a></div>
-                            <div align ="right"><a class="bi-star" href="#"></a></div>
+                            <div class="text-center">
+                                <form name="watch_4" action="play" method="get">
+                                    <input type="hidden" value="맨인블랙" name="first">
+                                    <a class="btn btn-outline-dark mt-auto" href="#" onclick="watch_4.submit()">Watch</a>
+                                </form>
+                                <div align ="right">
+                                    <!-- 체크박스로 선택 됐는지 안됐는지 확인 바뀔떄마다 changeCheckBox이벤트 발생 -->
+                                    <input class="hidden" type="checkbox" id="star4" onchange="changeCheckBox(event)">
+                                    <!-- label을 사용하여 input을 선택 가능 -->
+                                    <label class="bi-star" for="star4" style="cursor:pointer;"></label>
+                            </div>
                         </div>
-
+                        </div>
                         </div>
                     </div>
+
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
                             {%load static%}
-                            <img class="card-img-top" src="{% static 'thumbnail\토탈 리콜.jpg' %}" alt="..." />
+                            <img class="card-img-top" src="{% static 'thumbnail\토탈리콜.jpg' %}" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -158,10 +178,19 @@
 
                         <!--Watch버튼 + 별표시-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="play/{{movies.id}}">Watch</a></div>
-                            <div align ="right"><a class="bi-star" href="#"></a></div>
+                            <div class="text-center">
+                                <form name="watch_5" action="play" method="get">
+                                    <input type="hidden" value="토탈리콜" name="first">
+                                    <a class="btn btn-outline-dark mt-auto" href="#" onclick="watch_5.submit()">Watch</a>
+                                </form>
+                                <div align ="right">
+                                    <!-- 체크박스로 선택 됐는지 안됐는지 확인 바뀔떄마다 changeCheckBox이벤트 발생 -->
+                                    <input class="hidden" type="checkbox" id="star5" onchange="changeCheckBox(event)">
+                                    <!-- label을 사용하여 input을 선택 가능 -->
+                                    <label class="bi-star" for="star5" style="cursor:pointer;"></label>
+                                </div>
                         </div>
-
+                        </div>
                         </div>
                     </div>
                     <div class="col mb-5">
@@ -181,12 +210,21 @@
 
                         <!--Watch버튼 + 별표시-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="play/{{movies.id}}">Watch</a></div>
-                            <div align ="right"><a class="bi-star" href="#"></a></div>
+                            <div class="text-center">
+                                <form name="watch_6" action="play" method="get">
+                                    <input type="hidden" value="스크림" name="first">
+                                    <a class="btn btn-outline-dark mt-auto" href="#" onclick="watch_6.submit()">Watch</a>
+                                </form>
+                                <div align ="right">
+                                    <!-- 체크박스로 선택 됐는지 안됐는지 확인 바뀔떄마다 changeCheckBox이벤트 발생 -->
+                                    <input class="hidden" type="checkbox" id="star6" onchange="changeCheckBox(event)">
+                                    <!-- label을 사용하여 input을 선택 가능 -->
+                                    <label class="bi-star" for="star6" style="cursor:pointer;"></label></div>
+                            </div>
                         </div>
-
                         </div>
                     </div>
+
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
@@ -205,12 +243,22 @@
 
                         <!--Watch버튼 + 별표시-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="play/{{movies.id}}">Watch</a></div>
-                            <div align ="right"><a class="bi-star" href="#"></a></div>
+                            <div class="text-center">
+                                <form name="watch_7" action="play" method="get">
+                                    <input type="hidden" value="엑소시스트" name="first">
+                                    <a class="btn btn-outline-dark mt-auto" href="#" onclick="watch_7.submit()">Watch</a>
+                                </form>
+                                <div align ="right">
+                                    <!-- 체크박스로 선택 됐는지 안됐는지 확인 바뀔떄마다 changeCheckBox이벤트 발생 -->
+                                    <input class="hidden" type="checkbox" id="star7" onchange="changeCheckBox(event)">
+                                    <!-- label을 사용하여 input을 선택 가능 -->
+                                    <label class="bi-star" for="star7" style="cursor:pointer;"></label>
+                                </div>
+                            </div>
                         </div>
-
                         </div>
                     </div>
+
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
@@ -229,10 +277,18 @@
 
                         <!--Watch버튼 + 별표시-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="play/{{movies.id}}">Watch</a></div>
-                            <div align ="right"><a class="bi-star" href="#"></a></div>
+                            <div class="text-center">
+                                <form name="watch_8" action="play" method="get">
+                                    <input type="hidden" value="오펀" name="first">
+                                    <a class="btn btn-outline-dark mt-auto" href="#" onclick="watch_8.submit()">Watch</a>
+                                </form>
+                                <div align ="right">
+                                    <!-- 체크박스로 선택 됐는지 안됐는지 확인 바뀔떄마다 changeCheckBox이벤트 발생 -->
+                                    <input class="hidden" type="checkbox" id="star8" onchange="changeCheckBox(event)">
+                                    <!-- label을 사용하여 input을 선택 가능 -->
+                                    <label class="bi-star" for="star8" style="cursor:pointer;"></label></div>
+                            </div>
                         </div>
-
                         </div>
                     </div>
 
@@ -253,10 +309,19 @@
 
                         <!--Watch버튼 + 별표시-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="play/{{movies.id}}">Watch</a></div>
-                            <div align ="right"><a class="bi-star" href="#"></a></div>
+                            <div class="text-center">
+                                <form name="watch_9" action="play" method="get">
+                                    <input type="hidden" value="직쏘" name="first">
+                                    <a class="btn btn-outline-dark mt-auto" href="#" onclick="watch_9.submit()">Watch</a>
+                                </form>
+                                <div align ="right">
+                                    <!-- 체크박스로 선택 됐는지 안됐는지 확인 바뀔떄마다 changeCheckBox이벤트 발생 -->
+                                    <input class="hidden" type="checkbox" id="star9" onchange="changeCheckBox(event)">
+                                    <!-- label을 사용하여 input을 선택 가능 -->
+                                    <label class="bi-star" for="star9" style="cursor:pointer;"></label>
+                                </div>
+                            </div>
                         </div>
-
                         </div>
                     </div>
 
@@ -277,10 +342,18 @@
 
                         <!--Watch버튼 + 별표시-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="play/{{movies.id}}">Watch</a></div>
-                            <div align ="right"><a class="bi-star" href="#"></a></div>
+                            <div class="text-center">
+                                <form name="watch_10" action="play" method="get">
+                                    <input type="hidden" value="라라랜드" name="first">
+                                    <a class="btn btn-outline-dark mt-auto" href="#" onclick="watch_10.submit()">Watch</a>
+                                </form>
+                                <div align ="right">
+                                    <!-- 체크박스로 선택 됐는지 안됐는지 확인 바뀔떄마다 changeCheckBox이벤트 발생 -->
+                                    <input class="hidden" type="checkbox" id="star10" onchange="changeCheckBox(event)">
+                                    <!-- label을 사용하여 input을 선택 가능 -->
+                                    <label class="bi-star" for="star10" style="cursor:pointer;"></label></div>
+                            </div>
                         </div>
-
                         </div>
                     </div>
 
@@ -301,10 +374,18 @@
 
                         <!--Watch버튼 + 별표시-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="play/{{movies.id}}">Watch</a></div>
-                            <div align ="right"><a class="bi-star" href="#"></a></div>
+                            <div class="text-center">
+                                <form name="watch_11" action="play" method="get">
+                                    <input type="hidden" value="어바웃타임" name="first">
+                                    <a class="btn btn-outline-dark mt-auto" href="#" onclick="watch_11.submit()">Watch</a>
+                                </form>
+                                <div align ="right">
+                                    <!-- 체크박스로 선택 됐는지 안됐는지 확인 바뀔떄마다 changeCheckBox이벤트 발생 -->
+                                    <input class="hidden" type="checkbox" id="star11" onchange="changeCheckBox(event)">
+                                    <!-- label을 사용하여 input을 선택 가능 -->
+                                    <label class="bi-star" for="star11" style="cursor:pointer;"></label></div>
+                            </div>
                         </div>
-
                         </div>
                     </div>
 
@@ -312,7 +393,7 @@
                         <div class="card h-100">
                             <!-- Movie image-->
                             {%load static%}
-                            <img class="card-img-top" src="{% static 'thumbnail\미 비포 유.jpg' %}" alt="..." />
+                            <img class="card-img-top" src="{% static 'thumbnail\미비포유.jpg' %}" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -325,10 +406,18 @@
 
                         <!--Watch버튼 + 별표시-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="play/{{movies.id}}">Watch</a></div>
-                            <div align ="right"><a class="bi-star" href="#"></a></div>
+                            <div class="text-center">
+                                <form name="watch_12" action="play" method="get">
+                                    <input type="hidden" value="미비포유" name="first">
+                                    <a class="btn btn-outline-dark mt-auto" href="#" onclick="watch_12.submit()">Watch</a>
+                                </form>
+                                <div align ="right">
+                                    <!-- 체크박스로 선택 됐는지 안됐는지 확인 바뀔떄마다 changeCheckBox이벤트 발생 -->
+                                    <input class="hidden" type="checkbox" id="star12" onchange="changeCheckBox(event)">
+                                    <!-- label을 사용하여 input을 선택 가능 -->
+                                    <label class="bi-star" for="star12" style="cursor:pointer;"></label></div>
+                            </div>
                         </div>
-
                         </div>
                     </div>
 
@@ -336,7 +425,7 @@
                         <div class="card h-100">
                             <!-- Movie image-->
                             {%load static%}
-                            <img class="card-img-top" src="{% static 'thumbnail\비포 선라이즈.jpg' %}" alt="..." />
+                            <img class="card-img-top" src="{% static 'thumbnail\비포선라이즈.jpg' %}" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -349,10 +438,18 @@
 
                         <!--Watch버튼 + 별표시-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="play/{{movies.id}}">Watch</a></div>
-                            <div align ="right"><a class="bi-star" href="#"></a></div>
+                            <div class="text-center">
+                                <form name="watch_13" action="play" method="get">
+                                    <input type="hidden" value="비포선라이즈" name="first">
+                                    <a class="btn btn-outline-dark mt-auto" href="#" onclick="watch_13.submit()">Watch</a>
+                                </form>
+                                <div align ="right">
+                                    <!-- 체크박스로 선택 됐는지 안됐는지 확인 바뀔떄마다 changeCheckBox이벤트 발생 -->
+                                    <input class="hidden" type="checkbox" id="star13" onchange="changeCheckBox(event)">
+                                    <!-- label을 사용하여 input을 선택 가능 -->
+                                    <label class="bi-star" for="star13" style="cursor:pointer;"></label></div>                            
+                            </div>
                         </div>
-
                         </div>
                     </div>
 
@@ -373,10 +470,18 @@
 
                         <!--Watch버튼 + 별표시-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="play/{{movies.id}}">Watch</a></div>
-                            <div align ="right"><a class="bi-star" href="#"></a></div>
+                            <div class="text-center">
+                                <form name="watch_14" action="play" method="get">
+                                    <input type="hidden" value="럭" name="first">
+                                    <a class="btn btn-outline-dark mt-auto" href="#" onclick="watch_14.submit()">Watch</a>
+                                </form>
+                                <div align ="right">
+                                    <!-- 체크박스로 선택 됐는지 안됐는지 확인 바뀔떄마다 changeCheckBox이벤트 발생 -->
+                                    <input class="hidden" type="checkbox" id="star14" onchange="changeCheckBox(event)">
+                                    <!-- label을 사용하여 input을 선택 가능 -->
+                                    <label class="bi-star" for="star14" style="cursor:pointer;"></label></div>
+                            </div>
                         </div>
-
                         </div>
                     </div>
 
@@ -384,7 +489,7 @@
                         <div class="card h-100">
                             <!-- Movie image-->
                             {%load static%}
-                            <img class="card-img-top" src="{% static 'thumbnail\버즈 라이트 이어.jpg' %}" alt="..." />
+                            <img class="card-img-top" src="{% static 'thumbnail\버즈라이트이어.jpg' %}" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -397,10 +502,18 @@
 
                         <!--Watch버튼 + 별표시-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="play/{{movies.id}}">Watch</a></div>
-                            <div align ="right"><a class="bi-star" href="#"></a></div>
+                            <div class="text-center">
+                                <form name="watch_15" action="play" method="get">
+                                    <input type="hidden" value="버즈라이트이어" name="first">
+                                    <a class="btn btn-outline-dark mt-auto" href="#" onclick="watch_15.submit()">Watch</a>
+                                </form>
+                                <div align ="right">
+                                    <!-- 체크박스로 선택 됐는지 안됐는지 확인 바뀔떄마다 changeCheckBox이벤트 발생 -->
+                                    <input class="hidden" type="checkbox" id="star15" onchange="changeCheckBox(event)">
+                                    <!-- label을 사용하여 input을 선택 가능 -->
+                                    <label class="bi-star" for="star15" style="cursor:pointer;"></label></div>                            
+                            </div>
                         </div>
-
                         </div>
                     </div>
 
@@ -421,10 +534,18 @@
 
                         <!--Watch버튼 + 별표시-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="play/{{movies.id}}">Watch</a></div>
-                            <div align ="right"><a class="bi-star" href="#"></a></div>
+                            <div class="text-center">
+                                <form name="watch_16" action="play" method="get">
+                                    <input type="hidden" value="엘리멘탈" name="first">
+                                    <a class="btn btn-outline-dark mt-auto" href="#" onclick="watch_16.submit()">Watch</a>
+                                </form>
+                                <div align ="right">
+                                    <!-- 체크박스로 선택 됐는지 안됐는지 확인 바뀔떄마다 changeCheckBox이벤트 발생 -->
+                                    <input class="hidden" type="checkbox" id="star16" onchange="changeCheckBox(event)">
+                                    <!-- label을 사용하여 input을 선택 가능 -->
+                                    <label class="bi-star" for="star16" style="cursor:pointer;"></label></div>                            
+                            </div>
                         </div>
-
                         </div>
                     </div>
 
@@ -432,7 +553,7 @@
                         <div class="card h-100">
                             <!-- Movie image-->
                             {%load static%}
-                            <img class="card-img-top" src="{% static 'thumbnail\장화신은 고양이.jpg' %}" alt="..." />
+                            <img class="card-img-top" src="{% static 'thumbnail\장화신은고양이.jpg' %}" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -445,10 +566,18 @@
 
                         <!--Watch버튼 + 별표시-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="play/{{movies.id}}">Watch</a></div>
-                            <div align ="right"><a class="bi-star" href="#"></a></div>
+                            <div class="text-center">
+                                <form name="watch_17" action="play" method="get">
+                                    <input type="hidden" value="장화신은고양이" name="first">
+                                    <a class="btn btn-outline-dark mt-auto" href="#" onclick="watch_17.submit()">Watch</a>
+                                </form>
+                                <div align ="right">
+                                    <!-- 체크박스로 선택 됐는지 안됐는지 확인 바뀔떄마다 changeCheckBox이벤트 발생 -->
+                                    <input class="hidden" type="checkbox" id="star17" onchange="changeCheckBox(event)">
+                                    <!-- label을 사용하여 input을 선택 가능 -->
+                                    <label class="bi-star" for="star17" style="cursor:pointer;"></label></div>                            
+                            </div>
                         </div>
-
                         </div>
                     </div>
 
@@ -456,7 +585,7 @@
                         <div class="card h-100">
                             <!-- Movie image-->
                             {%load static%}
-                            <img class="card-img-top" src="{% static 'thumbnail\더 플래쉬.jpg' %}" alt="..." />
+                            <img class="card-img-top" src="{% static 'thumbnail\더플래쉬.jpg' %}" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -469,10 +598,18 @@
 
                         <!--Watch버튼 + 별표시-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="play/{{movies.id}}">Watch</a></div>
-                            <div align ="right"><a class="bi-star" href="#"></a></div>
+                            <div class="text-center">
+                                <form name="watch_18" action="play" method="get">
+                                    <input type="hidden" value="더플래쉬" name="first">
+                                    <a class="btn btn-outline-dark mt-auto" href="#" onclick="watch_18.submit()">Watch</a>
+                                </form>
+                                <div align ="right">
+                                    <!-- 체크박스로 선택 됐는지 안됐는지 확인 바뀔떄마다 changeCheckBox이벤트 발생 -->
+                                    <input class="hidden" type="checkbox" id="star18" onchange="changeCheckBox(event)">
+                                    <!-- label을 사용하여 input을 선택 가능 -->
+                                    <label class="bi-star" for="star18" style="cursor:pointer;"></label></div>                            
+                            </div>
                         </div>
-
                         </div>
                     </div>
 
@@ -493,10 +630,18 @@
 
                         <!--Watch버튼 + 별표시-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="play/{{movies.id}}">Watch</a></div>
-                            <div align ="right"><a class="bi-star" href="#"></a></div>
+                            <div class="text-center">
+                                <form name="watch_19" action="play" method="get">
+                                    <input type="hidden" value="앤트맨3" name="first">
+                                    <a class="btn btn-outline-dark mt-auto" href="#" onclick="watch_19.submit()">Watch</a>
+                                </form>
+                                <div align ="right">
+                                    <!-- 체크박스로 선택 됐는지 안됐는지 확인 바뀔떄마다 changeCheckBox이벤트 발생 -->
+                                    <input class="hidden" type="checkbox" id="star19" onchange="changeCheckBox(event)">
+                                    <!-- label을 사용하여 input을 선택 가능 -->
+                                    <label class="bi-star" for="star19" style="cursor:pointer;"></label></div>                            
+                            </div>
                         </div>
-
                         </div>
                     </div>
 
@@ -517,10 +662,18 @@
 
                         <!--Watch버튼 + 별표시-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="play/{{movies.id}}">Watch</a></div>
-                            <div align ="right"><a class="bi-star" href="#"></a></div>
+                            <div class="text-center">
+                                <form name="watch_20" action="play" method="get">
+                                    <input type="hidden" value="존윅4" name="first">
+                                    <a class="btn btn-outline-dark mt-auto" href="#" onclick="watch_20.submit()">Watch</a>
+                                </form>
+                                <div align ="right">
+                                    <!-- 체크박스로 선택 됐는지 안됐는지 확인 바뀔떄마다 changeCheckBox이벤트 발생 -->
+                                    <input class="hidden" type="checkbox" id="star20" onchange="changeCheckBox(event)">
+                                    <!-- label을 사용하여 input을 선택 가능 -->
+                                    <label class="bi-star" for="star20" style="cursor:pointer;"></label></div>
+                            </div>
                         </div>
-
                         </div>
                     </div>
 
@@ -541,10 +694,18 @@
 
                         <!--Watch버튼 + 별표시-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="play/{{movies.id}}">Watch</a></div>
-                            <div align ="right"><a class="bi-star" href="#"></a></div>
+                            <div class="text-center">
+                                <form name="watch_21" action="play" method="get">
+                                    <input type="hidden" value="크리드2" name="first">
+                                    <a class="btn btn-outline-dark mt-auto" href="#" onclick="watch_21.submit()">Watch</a>
+                                </form>
+                                <div align ="right">
+                                    <!-- 체크박스로 선택 됐는지 안됐는지 확인 바뀔떄마다 changeCheckBox이벤트 발생 -->
+                                    <input class="hidden" type="checkbox" id="star21" onchange="changeCheckBox(event)">
+                                    <!-- label을 사용하여 input을 선택 가능 -->
+                                    <label class="bi-star" for="star21" style="cursor:pointer;"></label></div>                            
+                            </div>
                         </div>
-
                         </div>
                     </div>
 
@@ -552,7 +713,7 @@
                         <div class="card h-100">
                             <!-- Movie image-->
                             {%load static%}
-                            <img class="card-img-top" src="{% static 'thumbnail\덤 앤 더머.jpg' %}" alt="..." />
+                            <img class="card-img-top" src="{% static 'thumbnail\덤앤더머.jpg' %}" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -565,10 +726,18 @@
 
                         <!--Watch버튼 + 별표시-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="play/{{movies.id}}">Watch</a></div>
-                            <div align ="right"><a class="bi-star" href="#"></a></div>
+                            <div class="text-center">
+                                <form name="watch_22" action="play" method="get">
+                                    <input type="hidden" value="덤앤더머" name="first">
+                                    <a class="btn btn-outline-dark mt-auto" href="#" onclick="watch_22.submit()">Watch</a>
+                                </form>
+                                <div align ="right">
+                                    <!-- 체크박스로 선택 됐는지 안됐는지 확인 바뀔떄마다 changeCheckBox이벤트 발생 -->
+                                    <input class="hidden" type="checkbox" id="star22" onchange="changeCheckBox(event)">
+                                    <!-- label을 사용하여 input을 선택 가능 -->
+                                    <label class="bi-star" for="star22" style="cursor:pointer;"></label></div>                            
+                            </div>
                         </div>
-
                         </div>
                     </div>
 
@@ -576,7 +745,7 @@
                         <div class="card h-100">
                             <!-- Movie image-->
                             {%load static%}
-                            <img class="card-img-top" src="{% static 'thumbnail\스쿨 오브 락.jpg' %}" alt="..." />
+                            <img class="card-img-top" src="{% static 'thumbnail\스쿨오브락.jpg' %}" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -589,10 +758,18 @@
 
                         <!--Watch버튼 + 별표시-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="play/{{movies.id}}">Watch</a></div>
-                            <div align ="right"><a class="bi-star" href="#"></a></div>
+                            <div class="text-center">
+                                <form name="watch_23" action="play" method="get">
+                                    <input type="hidden" value="스쿨오브락" name="first">
+                                    <a class="btn btn-outline-dark mt-auto" href="#" onclick="watch_23.submit()">Watch</a>
+                                </form>
+                                <div align ="right">
+                                    <!-- 체크박스로 선택 됐는지 안됐는지 확인 바뀔떄마다 changeCheckBox이벤트 발생 -->
+                                    <input class="hidden" type="checkbox" id="star23" onchange="changeCheckBox(event)">
+                                    <!-- label을 사용하여 input을 선택 가능 -->
+                                    <label class="bi-star" for="star23" style="cursor:pointer;"></label></div>
+                            </div>
                         </div>
-
                         </div>
                     </div>
 
@@ -600,7 +777,7 @@
                         <div class="card h-100">
                             <!-- Movie image-->
                             {%load static%}
-                            <img class="card-img-top" src="{% static 'thumbnail\핫 칙.jpg' %}" alt="..." />
+                            <img class="card-img-top" src="{% static 'thumbnail\핫칙.jpg' %}" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -613,11 +790,149 @@
 
                         <!--Watch버튼 + 별표시-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="play/{{movies.id}}">Watch</a></div>
-                            <div align ="right"><a class="bi-star" href="#"></a></div>
+                            <div class="text-center">
+                                <form name="watch_24" action="play" method="get">
+                                    <input type="hidden" value="핫칙" name="first">
+                                    <a class="btn btn-outline-dark mt-auto" href="#" onclick="watch_24.submit()">Watch</a>
+                                </form>
+                                <div align ="right">
+                                    <!-- 체크박스로 선택 됐는지 안됐는지 확인 바뀔떄마다 changeCheckBox이벤트 발생 -->
+                                    <input class="hidden" type="checkbox" id="star24" onchange="changeCheckBox(event)">
+                                    <!-- label을 사용하여 input을 선택 가능 -->
+                                    <label class="bi-star" for="star24" style="cursor:pointer;"></label></div>                            
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Movie image-->
+                        {%load static%}
+                        <img class="card-img-top" src="{% static 'thumbnail\고양이를부탁해.jpg' %}" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">고양이를 부탁해</h5>
+                                <!-- Product price-->
+                                장르: 드라마
+                                </div>
+                        </div>
+
+                    <!--Watch버튼 + 별표시-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center">
+                            <form name="watch_25" action="play" method="get">
+                                <input type="hidden" value="고양이를부탁해" name="first">
+                                <a class="btn btn-outline-dark mt-auto" href="#" onclick="watch_25.submit()">Watch</a>
+                            </form>
+                            <div align ="right">
+                                <!-- 체크박스로 선택 됐는지 안됐는지 확인 바뀔떄마다 changeCheckBox이벤트 발생 -->
+                                <input class="hidden" type="checkbox" id="star25" onchange="changeCheckBox(event)">
+                                <!-- label을 사용하여 input을 선택 가능 -->
+                                <label class="bi-star" for="star25" style="cursor:pointer;"></label></div>                        
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Movie image-->
+                        {%load static%}
+                        <img class="card-img-top" src="{% static 'thumbnail\낙원의밤.jpg' %}" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">낙원의 밤</h5>
+                                <!-- Product price-->
+                                장르: 액션
+                                </div>
+                        </div>
+
+                    <!--Watch버튼 + 별표시-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center">
+                            <form name="watch_26" action="play" method="get">
+                                <input type="hidden" value="낙원의밤" name="first">
+                                <a class="btn btn-outline-dark mt-auto" href="#" onclick="watch_26.submit()">Watch</a>
+                            </form>
+                            <div align ="right">
+                                <!-- 체크박스로 선택 됐는지 안됐는지 확인 바뀔떄마다 changeCheckBox이벤트 발생 -->
+                                <input class="hidden" type="checkbox" id="star26" onchange="changeCheckBox(event)">
+                                <!-- label을 사용하여 input을 선택 가능 -->
+                                <label class="bi-star" for="star26" style="cursor:pointer;"></label></div>                        
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Movie image-->
+                        {%load static%}
+                        <img class="card-img-top" src="{% static 'thumbnail\신세계.jpg' %}" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">신세계</h5>
+                                <!-- Product price-->
+                                장르: 액션
+                                </div>
+                        </div>
+
+                    <!--Watch버튼 + 별표시-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center">
+                            <form name="watch_27" action="play" method="get">
+                                <input type="hidden" value="신세계" name="first">
+                                <a class="btn btn-outline-dark mt-auto" href="#" onclick="watch_27.submit()">Watch</a>
+                            </form>
+                            <div align ="right">
+                                <!-- 체크박스로 선택 됐는지 안됐는지 확인 바뀔떄마다 changeCheckBox이벤트 발생 -->
+                                <input class="hidden" type="checkbox" id="star27" onchange="changeCheckBox(event)">
+                                <!-- label을 사용하여 input을 선택 가능 -->
+                                <label class="bi-star" for="star27" style="cursor:pointer;"></label></div>                        
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Movie image-->
+                        {%load static%}
+                        <img class="card-img-top" src="{% static 'thumbnail\독전.jpg' %}" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">독전</h5>
+                                <!-- Product price-->
+                                장르: 액션
+                                </div>
+                        </div>
+
+                    <!--Watch버튼 + 별표시-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center">
+                            <form name="watch_28" action="play" method="get">
+                                <input type="hidden" value="독전" name="first">
+                                <a class="btn btn-outline-dark mt-auto" href="#" onclick="watch_28.submit()">Watch</a>
+                            </form>
+                            <div align ="right">
+                                <!-- 체크박스로 선택 됐는지 안됐는지 확인 바뀔떄마다 changeCheckBox이벤트 발생 -->
+                                <input class="hidden" type="checkbox" id="star28" onchange="changeCheckBox(event)">
+                                <!-- label을 사용하여 input을 선택 가능 -->
+                                <label class="bi-star" for="star28" style="cursor:pointer;"></label></div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
             </div>
         
         <!-- Footer-->
