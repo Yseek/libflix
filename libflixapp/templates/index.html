@@ -20,6 +20,7 @@
         }
     </style>
     <body>
+
         {% include "top.html" %}
         <!-- Header-->
         <header class="bg-dark py-4">
@@ -96,7 +97,7 @@
                         <div class="card h-100">
                             <!-- Product image-->
                             {%load static%}
-                            <img class="card-img-top" src="{% static 'thumbnail\세 얼간이.jpg' %}" alt="..." />
+                            <img class="card-img-top" src="{% static 'thumbnail\세얼간이.jpg' %}" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -618,11 +619,12 @@
                         </div>
                     </div>
                 </div>
+                <div id='LEFT_SCROLL'>
             </div>
         
         <!-- Footer-->
         <footer class="py-5 bg-dark">
-            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Fantastic4's Website 2023</p></div>
+            <div class="container"><p class="m-0 text-center text-white">&copy; 2023 Fantastic4, Inc .</p></div>
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
