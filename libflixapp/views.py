@@ -138,3 +138,5 @@ def logout(request):
     if request.session.get('login_'):
         del(request.session['login_'])
         return redirect('./')
+    
+
