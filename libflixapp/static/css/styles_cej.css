@@ -91,6 +91,10 @@
   width:50%;
 }
 
+#bg2{
+  background-color: black;
+}
+
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
