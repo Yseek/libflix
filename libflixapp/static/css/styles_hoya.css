@@ -94,6 +94,11 @@ section::before{
   width: 50%;
 }
 
+.section_write{
+  height: 950px;
+  background-color:black;
+}
+
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
@@ -11311,7 +11316,6 @@ textarea.form-control-lg {
   background-image: linear-gradient(rgba( 0, 0, 0, 0.85 ),#000), linear-gradient(to right, #fbfcb9be, #ffcdf3aa, #65d3ffaa);
   background-origin: border-box;
   background-clip: content-box, border-box;
-
 }
 
 
