@@ -12,19 +12,19 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" href="#!">{{request.session.nick}}</a>
+            <a class="navbar-brand" href="#">{{request.session.nick}}</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                    <li class="nav-item"><form name="menu_main" action="index"><a class= "nav-link active" aria-current="page" href="#"><p onclick="menu_main.submit()">메인</p></a></form></li>
+                    <li class="nav-item"><form name="menu_main" action="index"><a class= "nav-link active" aria-current="page" href="#" onclick="menu_main.submit()">메인</a></form></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Menu</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><form name="menu_board" action="board"><a class= "dropdown-item" href="#"><p onclick="menu_board.submit()">게시판</p></a></form></li>
+                            <li><form name="menu_board" action="board"><a class= "dropdown-item" href="#" onclick="menu_board.submit()">게시판</a></form></li>
                             <li><hr class="dropdown-divider" /></li>
-                            <li><form name="menu_genre" action="genre"><a class= "dropdown-item" href="#"><p onclick="menu_genre.submit()">장르</p></a></form></li>
-                            <li><form name="menu_top_rank" action="top_rank"><a class= "dropdown-item" href="#"><p onclick="menu_top_rank.submit()">TOP 10</p></a></form></li>
-                            <li><form name="menu_favorite" action="myfavorite"><a class="dropdown-item" href="#"><p onclick="menu_favorite.submit()">보관함</p></a></form></li>
+                            <li><form name="menu_genre" action="genre"><a class= "dropdown-item" href="#" onclick="menu_genre.submit()">장르</a></form></li>
+                            <li><form name="menu_top_rank" action="top_rank"><a class= "dropdown-item" href="#" onclick="menu_top_rank.submit()">TOP 10</a></form></li>
+                            <li><form name="menu_favorite" action="myfavorite"><a id="menu_favor" class="dropdown-item" href="#">보관함</a></form></li>
                         </ul>
                     </li>
                 </ul>
@@ -35,5 +35,18 @@
         </div>
     </nav>
 </body>
+    <script>
+    
+        var el = document.getElementById("menu_favor");
+        el.onclick = user_check;
+        
+        function user_check(){
+            if(("{{request.session.login_}}").length==0){
+                location.href="top_login__";
+            }else{
+                menu_favorite.submit();
+            }
+        }
+    </script>
 </html>
 
