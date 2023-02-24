@@ -61,8 +61,8 @@
             {% for list in postlist %}
             <tr>
                 <td><center>{{list.id}}</center></td>
-                {% comment %} <td><form action="boardcontent" method="get"><input type="hidden" name="list_id" value="{{list.id}}"><button type="submit">&nbsp;&nbsp;{{list.postname}}</button></form></td> {% endcomment %}
-                <td>&nbsp;&nbsp;{{list.postname}}</td>
+                <td><form action="boardcontent" method="get"><input type="hidden" name="list_id" value="{{list.id}}"><button type="submit">&nbsp;&nbsp;{{list.postname}}</button></form></td>
+                {% comment %} <td>&nbsp;&nbsp;{{list.postname}}</td> {% endcomment %}
                 <td>&nbsp;&nbsp;&nbsp;{{list.writer}}</td>
                 <td><center>&nbsp;&nbsp;{{list.rdate}}</center></td>
             </tr>
