@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="{% static 'css/styles_cej.css' %}" rel="stylesheet" />
+        <link href="{% static 'css/styles_hoya2.css' %}" rel="stylesheet" />
         <title>LIBFLIX's Write</title>
         <!-- Favicon-->
         <link rel="shortcut icon" href="{% static 'imgs/favicon.ico' %}" />
@@ -26,14 +26,14 @@
         <div id = "body-content">
     <form name="f" action="write_ok" method="post">
     {% csrf_token %}
-            <div style="margin-bottom:15px; margin-bottom:15px; margin-right:5px; float:left; margin-left:680px"><a class="btn" style="background:white; width:90px">제목</a></div>
-            <div style="margin-bottom:15px "><input name="title" style="height:38px"></div>
-            <div style="margin-bottom:15px; margin-bottom:15px; margin-right:5px; float:left; margin-left:680px" ><a class="btn" style="background:white; width:90px">비밀번호</a></div>
+            <div class="title_margin"><a class="btn" style="background:white; width:90px">제목</a></div>
+            <div style="margin-bottom:15px;"><input name="title" style="height:38px; margin-top:10px;"></div>
+            <div class="pwd_margin"><a class="btn" style="background:white; width:90px">비밀번호</a></div>
             <div><input name="pwd" style="margin-bottom:15px; height:38px" placeholder="입력시 비밀글"></div>
         <center>
-            <div><textarea class="textfield" name="textfield" style="background-color:white; width:550px; height:350px"></textarea></div>
-            <input type="button" value="작성" onclick="f.submit()"  style="margin-top: 5px; margin-bottom:10px">
-            <input type="button" value="취소" onclick="history.back()" style="margin-top: 5px; margin-bottom:10px">
+            <div><textarea class="bg_textarea" name="textfield"></textarea></div>
+            <input "input_back_margin" type="button" value="Write" onclick="f.submit()">
+            <input class="input_back_margin" type="button" value="Back" onclick="history.back()">
         </center>
     </form>
     <!-- Footer-->
