@@ -21,7 +21,6 @@
         <div class="text-center text-white">
             {%load static%}
             <center><a href="#"><img src = "{% static 'imgs\board-logo.png' %}"></a>
-            <!--<p class="lead fw-normal text-white-50 mb-0">Let's talk about your story with LIBFLIX</p></center>-->
         </div>
     </div>
 </header> 
@@ -30,44 +29,7 @@
         <div id = "body-content">
     <!-- Section-->
     <section id = "bg2">
-    {% comment %} <br><br>
-    <table class="boardlist">
-            <colgroup>
-            <col style="width:8%"> <!--번호-->
-                        <col style="width:30%"><!--제목-->
-                        <col>
-                        <col style="width:30%"><!--글쓴이-->
-                        <col style="width:12%"><!--작성일-->
-            <col style="width:5%">
-            <col style="width:5%">
-        </colgroup>  {% endcomment %}
-
-        {% comment %} <thead>
-            <tr>
-                <th scope="col">번호</th>
-                <th scope="col"><center>제목</center></th>
-                <th scope="col">&nbsp;&nbsp;&nbsp;글쓴이</th>
-                <th scope="col"><center>&nbsp;&nbsp;작성일</center></th>
-                <th scope="col"><img src = "{% static 'imgs\write.png' %}" onclick = "location.href='write'" align="right" style="cursor:pointer;"/></th>
-            </tr>
-        </thead> {% endcomment %}
-
-        {% comment %} <thead>
-            <tr>
-                <th scope="col">번호</th>
-                <th scope="col">제목</th>
-                <th scope="col">글쓴이</th>
-                <th scope="col">작성일</th>
-                <th scope="col"><img src = "{% static 'imgs\write.png' %}" onclick = "location.href='write'" align="right" style="cursor:pointer;"/></th>
-            </tr>
-        </thead> {% endcomment %}
-
-            {% comment %} <tr>
-                <th>번호</th>
-                <th>제목</th>
-                <th>글쓴이</th>
-                <th><center>작성일</center><img src = "{% static 'imgs\write.png' %}" onclick = "location.href='write'" align="right" style="cursor:pointer;"/></th>
-            </tr> {% endcomment %}
+    
         <br><br>
         <style>
 
@@ -93,7 +55,6 @@
                 <th scope="col"><center>제목</center></th>
                 <th scope="col">글쓴이</th>
                 <th scope="col"><center>작성일</center></th>
-                {% comment %} <th scope="col"><img src = "{% static 'imgs\write.png' %}" onclick = "location.href='write'" align="right" style="cursor:pointer;"/></th> {% endcomment %}
             </tr>
         </thead>
 
@@ -102,17 +63,15 @@
             <tr>
                 <td><center>{{list.id}}</center></td>
                 <td><form action="boardcontent" method="get"><input type="hidden" name="list_id" value="{{list.id}}"><a href="boardcontent?list_id={{list.id}}" style="color: white; text-decoration:none";>{{list.postname}}</a></form></td>
-                {% comment %} <td><form action="boardcontent" method="get"><input type="hidden" name="list_id" value="{{list.id}}"><button type = "submit">{{list.postname}}</button></form></td> {% endcomment %}
                 <td>{{list.writer}}</td>
                 <td><center>{{list.rdate}}</center></td>
             </tr>
             {% endfor %}
         </tbody>
         </table>
-        {% comment %} <form method="POST" action="{% url 'search' %}"> {% endcomment %}
-            {% comment %} {%csrf_token%} {% endcomment %}
-            {% comment %} <div style="margin-left: 1180px; margin-right: 10px; float: left"><input type="search" placeholder="Type to search!" aria-label="Search" name="post" value="{{post}}" style="height:40px;"></div> {% endcomment %}
-            {% comment %} <div style="margin-right: 10px; float: left"><a class="btn mt-auto" type="submit" style = "background-color: white;">search</a></div> {% endcomment %}
+
+        <div style="margin-left: 1180px; margin-right: 10px; float: left">
+            <input type="search" placeholder="Type to search!" aria-label="Search" name="post" value="{{post}}" style="height:40px;"></div>
         <div style="margin-right: 10px; float: left"><a class="btn mt-auto" align="center" style = "background-color: white;">search</a></div> 
         <div style="float: left"><a class="btn mt-auto" onclick = "location.href='write'" align="center" style = "background-color: white;">write</a></div>
         

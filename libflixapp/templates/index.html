@@ -18,6 +18,11 @@
         .hidden {
             display: none;
         }
+
+        #bg{
+            background: url("{% static 'img\bg.png' %}")
+        }
+
     </style>
     <body>
         <!--footer를 위한 div나누기-->
@@ -64,7 +69,7 @@
                                 </form>
                                 <form class="favor_cls" name="{{forloop.counter}}" action="addFavor" method="get">
                                     <input class="input2" id="{{forloop.counter0}}" type="hidden" value="{{movie.title}}" name="second">
-                                    <a class="btn btn-outline-dark mt-auto1" href="#" >추가</a>
+                                    <a class="btn btn-outline-dark mt-auto1" href="#" >&nbsp;추가&nbsp;</a>
                                 </form>
                                 <div align ="right">
                                     <!-- 체크박스로 선택 됐는지 안됐는지 확인 바뀔떄마다 changeCheckBox이벤트 발생 -->
