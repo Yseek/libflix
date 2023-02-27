@@ -14,6 +14,9 @@
         <link href="{% static 'css/styles_hoya.css' %}" rel="stylesheet" />
         <title>영화 : {{movies.title}}</title>
     </head>
+    <style>
+
+    </style>
     <body>
         {% include "top.html" %}
         <header class="bg-dark py-4">
@@ -25,7 +28,7 @@
                 </div>
             </div>
         </header>
-        <section>
+        <section id = "playBG">
         <center>
             <video class="box2" style="margin-top:30px" id="thumbnail_" width="800" height="450" preload="none" controls poster="">    
                 <source id="source_" src="" type="video/mp4">

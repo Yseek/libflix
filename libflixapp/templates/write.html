@@ -5,45 +5,60 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="{% static 'css/styles_hoya2.css' %}" rel="stylesheet" />
+        <link href="{% static 'css/styles_hoya.css' %}" rel="stylesheet" />
         <title>LIBFLIX's Write</title>
         <!-- Favicon-->
         <link rel="shortcut icon" href="{% static 'imgs/favicon.ico' %}" />
+        <style>
+            #bg2{
+                background-color: black;
+            }
+
+            #footer{
+                   width:100%;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+            }
+        </style>
     </head>
-<body>
-    {% include "top.html" %}
-    <header class="bg-dark py-4">
-        <div class="container px-3 px-lg-4 my-4">
-            <div class="text-center">
-                {%load static%}
-                <a href="./"><img src = "{% static 'img\logo3.png' %}"></a>
-                <p class="lead fw-normal text-white-50 mb-0">Life is Beautiful with LIBflix</p>
+    <body id="body2">
+        {% include "top.html" %}
+        <header class="bg-dark py-4">
+            <div class="container px-3 px-lg-4 my-4">
+                <div class="text-center">
+                    {%load static%}
+                    <a href="./"><img src = "{% static 'img\logo3.png' %}"></a>
+                    <p class="lead fw-normal text-white-50 mb-0">Life is Beautiful with LIBflix</p>
+                </div>
             </div>
+        </header>
+        <div id = "body-wrapper">
+            <div id = "body-content">
+                <section id = "bg2">
+                    <form name="f" action="write_ok" method="post">
+                    {% csrf_token %}
+                    <div class="title_margin"><a class="btn" style="background:white; width:90px">제목</a></div>
+                    <div style="margin-bottom:15px;"><input name="title" style="height:38px; margin-top:10px;"></div>
+                    <div class="pwd_margin"><a class="btn" style="background:white; width:90px">비밀번호</a></div>
+                    <div><input name="pwd" style="margin-bottom:15px; height:38px" placeholder="입력시 비밀글"></div>
+                    <center>
+                        <div><textarea class="bg_textarea" name="textfield"></textarea></div>
+                        <input "input_back_margin" type="button" value="Write" onclick="f.submit()">
+                        <input class="input_back_margin" type="button" value="Back" onclick="history.back()">
+                    </center>
+                </section>
+            </div>
+                </form>
+            <!-- Footer-->
+            <footer id = "footer">
+            <footer class="py-5 bg-dark">
+                <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Fantastic4's Website 2023</p></div>
+            </footer>
+            <!-- Bootstrap core JS-->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+            <!-- Core theme JS-->
+            <script src="{% static 'js/scripts.js' %}"></script>
         </div>
-    </header>
-    <section id = "bg2">
-    <div id = "body-wrapper">
-        <div id = "body-content">
-    <form name="f" action="write_ok" method="post">
-    {% csrf_token %}
-            <div class="title_margin"><a class="btn" style="background:white; width:90px">제목</a></div>
-            <div style="margin-bottom:15px;"><input name="title" style="height:38px; margin-top:10px;"></div>
-            <div class="pwd_margin"><a class="btn" style="background:white; width:90px">비밀번호</a></div>
-            <div><input name="pwd" style="margin-bottom:15px; height:38px" placeholder="입력시 비밀글"></div>
-        <center>
-            <div><textarea class="bg_textarea" name="textfield"></textarea></div>
-            <input "input_back_margin" type="button" value="Write" onclick="f.submit()">
-            <input class="input_back_margin" type="button" value="Back" onclick="history.back()">
-        </center>
-    </form>
-    <!-- Footer-->
-    <footer class="py-5 bg-dark">
-        <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Fantastic4's Website 2023</p></div>
-    </footer>
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="{% static 'js/scripts.js' %}"></script>
-</section>
-</body>
+    </body>
 </html>
