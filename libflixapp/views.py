@@ -57,10 +57,8 @@ def write(request):
 def write_ok(request):
     x = request.POST['title']
     y = request.POST['textfield']
-    pwd = request.POST['pwd']
     nowDatetime = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    pwd = pwd
-    NoticeBoard(postname=x,contents=y,password=pwd,rdate=nowDatetime,writer=Member.objects.get(email=request.session['login_'])).save()
+    NoticeBoard(postname=x,contents=y,rdate=nowDatetime,writer=Member.objects.get(email=request.session['login_'])).save()
     return redirect('/libflixapp/board')
 
 def delete(request):
@@ -91,11 +89,9 @@ def update_ok(request,id):
     update_=NoticeBoard.objects.get(id=id)
     x = request.POST['title']
     y = request.POST['textfield']
-    pwd = request.POST['pwd']
     nowDatetime = datetime.datetime.now().strftime('%Y-%m-%d')
     update_.postname=x
     update_.contents=y
-    update_.password=pwd
     update_.rdate=nowDatetime
     update_.save()
     return redirect('/libflixapp/board')
