@@ -138,5 +138,16 @@ def logout(request):
     if request.session.get('login_'):
         del(request.session['login_'])
         return redirect('./')
-    
 
+# def search(request):
+#     context = dict()
+#     free_post = Post.objects.filter(category__icontains="Board").order_by('-id')
+#     post = request.POST.get('post',"")
+#     if post:
+#         free_post = free_post.filter(title__icontains=post)
+#         context['free_post'] = free_post
+#         context['post'] = post
+#         return render(request, 'search.html', context)
+#     else:
+#         return render(request, 'search.html')
+    

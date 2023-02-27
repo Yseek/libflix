@@ -14,7 +14,7 @@
 
         .hidden {
             display: none;
-        }
+        } 
 
     #Top10_section{
         {% comment %} background-color: black; {% endcomment %}
@@ -404,4 +404,40 @@
         <!-- Core theme JS-->
         <script src="{% static 'js/scripts.js' %}"></script>
 
+        <script type="text/javascript">
+            window.onload = () => {
+                document.querySelectorAll('.hidden').forEach(e => {
+                    if (e.checked) {
+                        document.querySelector('[for="'+e.id+'"]').className = "bi-star-fill"
+                        document.querySelector('[for="'+e.id+'"]').style.color="rgb(255, 210, 48)"
+                    } else {
+                        document.querySelector('[for="'+e.id+'"]').className = "bi-star"
+                        document.querySelector('[for="'+e.id+'"]').style.color="rgb(0, 0, 0)"
+                    }
+                })
+            }
+        </script>
+        <script>
+            function changeCheckBox(e) {
+                if (e.target.checked) {
+                    document.querySelector('[for="'+e.target.id+'"]').className = "bi-star-fill"
+                    document.querySelector('[for="'+e.target.id+'"]').style.color="rgb(255, 210, 48)"
+                } else {
+                    document.querySelector('[for="'+e.target.id+'"]').className = "bi-star"
+                    document.querySelector('[for="'+e.target.id+'"]').style.color="rgb(0, 0, 0)"
+                }
+            }
+        </script>
+        <script>
+            document.querySelectorAll('.input_').forEach(e =>{
+                document.getElementsByClassName("btn btn-outline-dark mt-auto")[e.id].onclick = user_check;
+                function user_check(){
+                    if(("{{request.session.login_}}").length==0){
+                        location.href="top_login__";
+                    }else{
+                        document.getElementsByClassName("form_cls")[e.id].submit();
+                    }
+                }
+            })
+        </script>
 </html>
