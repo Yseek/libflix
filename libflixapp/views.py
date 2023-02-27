@@ -1,18 +1,22 @@
 from django.shortcuts import render, redirect
 from django.template import loader
 from django.http import HttpResponse
-from . models import NoticeBoard, Member,Movies
+from . models import NoticeBoard, Member,Movies,MyFavoriteList
 import datetime
 from django.http import JsonResponse
 
 def index(request):
+    res_data={}
     if  request.session.get('login_') is not None:
-        return render(request,'index.html')
+        res_data['movie_info']=Movies.objects.all()
+        return render(request,'index.html',res_data)
     else:
         request.session['nick'] = ""
         request.session['button_name'] = "로그인"
         request.session['button_dir'] = 'top_login__'
-        return render(request,'index.html')
+        res_data['movie_info']=Movies.objects.all()
+        print(res_data['movie_info'])
+        return render(request,'index.html',res_data)
 
 def play(request):
     x=request.GET['first']
@@ -22,7 +26,16 @@ def play(request):
     return render(request,'play.html',res_data)
     
 def myfavorite(request):
-    return render(request,'myfavorite.html')
+    try:
+        res_data={}
+        res_data['my_movie']=MyFavoriteList.objects.filter(email=request.session.get('login_'))
+        res_data['favor']=[]
+        for i in res_data['my_movie']:
+            res_data['favor'].append(Movies.objects.get(id=i.moive_num_id))
+        return render(request,'myfavorite.html',res_data)
+    except:
+        return render(request,'myfavorite.html',res_data)
+        
 
 def board(request):
     res_data={}
@@ -85,12 +98,8 @@ def login_ok(request):
             return redirect('index')
         else:
             pass
-            # res_data['error']="비밀번호가 틀렸습니다."
-            # return render(request,'top_login.html',res_data)
     except:
         pass
-        # res_data['error']="아이디가 없습니다."
-        # return render(request,'top_login.html',res_data)
 
 
 def top_login(request):
@@ -151,3 +160,23 @@ def logout(request):
 #     else:
 #         return render(request, 'search.html')
     
+def addFavor(request):
+    if request.session.get('login_'):
+        res_data={}
+        res_data['my_movie']=MyFavoriteList.objects.filter(email=request.session.get('login_'))
+        res_data['favor']=[]
+        x=request.GET['second']
+        for i in res_data['my_movie']:
+            res_data['favor'].append(Movies.objects.get(pk=i.moive_num_id).title)
+        if x not in res_data['favor']:
+            MyFavoriteList(email_id=request.session.get('login_'), moive_num_id=Movies.objects.get(title=x).pk).save()
+        else:
+            pass
+        return myfavorite(request)
+    else:
+        pass
+
+def deleteFavor(request):
+    x=request.GET['second']
+    MyFavoriteList.objects.filter(email_id=request.session.get('login_'), moive_num_id=Movies.objects.get(title=x).pk).delete()
+    return myfavorite(request)
