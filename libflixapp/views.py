@@ -52,10 +52,8 @@ def write(request):
     if request.session.get('login_'):
         return render(request,'write.html')
     else:
-
         return top_login(request)
         
-
 def write_ok(request):
     x = request.POST['title']
     y = request.POST['textfield']
