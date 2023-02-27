@@ -24,4 +24,6 @@ urlpatterns = [
     path('top_rank',views.top_rank,name='top_rank'),
     path('addFavor',views.addFavor, name='addFavor'),
     path('deleteFavor',views.deleteFavor,name='deleteFavor'),
+    path('search',views.search,name='search'),
+
 ]

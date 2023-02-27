@@ -49,7 +49,12 @@ def boardcontent(request):
     return render(request,'boardcontent.html',res_data)
 
 def write(request):
-    return render(request,'write.html')
+    if request.session.get('login_'):
+        return render(request,'write.html')
+    else:
+
+        return top_login(request)
+        
 
 def write_ok(request):
     x = request.POST['title']
@@ -62,14 +67,27 @@ def write_ok(request):
 
 def delete(request):
     x = request.GET['delete_']
-    NoticeBoard.objects.get(id=x).delete()
-    return redirect('board')
+    y = NoticeBoard.objects.get(id=x)
+    if request.session.get('login_') != y.writer_id:
+        res_data={}
+        res_data['error']='안됨'
+        res_data['content']=y
+        return render(request,'boardcontent.html',res_data)
+    else:
+        NoticeBoard.objects.get(id=x).delete()
+        return redirect('board')
 
 def update(request):
-    x = request.GET['update_']
     res_data={}
-    res_data['update_content']=NoticeBoard.objects.get(id=x)
-    return render(request,'update.html',res_data)
+    x = request.GET['update_']
+    y=NoticeBoard.objects.get(id=x)
+    if request.session.get('login_') != y.writer_id:
+        res_data['error']='안됨'
+        res_data['content']=y
+        return render(request,'boardcontent.html',res_data)
+    else:
+        res_data['update_content']=y
+        return render(request,'update.html',res_data)
 
 def update_ok(request,id):
     update_=NoticeBoard.objects.get(id=id)
@@ -87,7 +105,6 @@ def update_ok(request,id):
 def login_ok(request):
     x = request.POST['email']
     y = request.POST['pwd']
-    # res_data={}
     try:
         login_=Member.objects.get(email=x)
         if login_.pwd== y:
@@ -100,7 +117,6 @@ def login_ok(request):
             pass
     except:
         pass
-
 
 def top_login(request):
     res_data={}
@@ -148,18 +164,6 @@ def logout(request):
         del(request.session['login_'])
         return redirect('./')
 
-# def search(request):
-#     context = dict()
-#     free_post = Post.objects.filter(category__icontains="Board").order_by('-id')
-#     post = request.POST.get('post',"")
-#     if post:
-#         free_post = free_post.filter(title__icontains=post)
-#         context['free_post'] = free_post
-#         context['post'] = post
-#         return render(request, 'search.html', context)
-#     else:
-#         return render(request, 'search.html')
-    
 def addFavor(request):
     if request.session.get('login_'):
         res_data={}
@@ -180,3 +184,10 @@ def deleteFavor(request):
     x=request.GET['second']
     MyFavoriteList.objects.filter(email_id=request.session.get('login_'), moive_num_id=Movies.objects.get(title=x).pk).delete()
     return myfavorite(request)
+
+
+def search(request):
+    x=request.GET['q']
+    res_data={}
+    res_data['postlist']=NoticeBoard.objects.filter(postname__contains=x)
+    return render(request,'board.html',res_data)
