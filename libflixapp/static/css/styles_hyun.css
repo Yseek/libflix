@@ -13,6 +13,9 @@
  @import url(./reset.css);
  @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
  
+
+
+
  html,
  body {
    height: 100%;
@@ -882,13 +885,6 @@
     scroll-behavior: smooth;
   }
 }
-
-#footer{
-  width:100%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-} 
 
 body {
   margin: 0;
@@ -12108,3 +12104,10 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+
+#footer{
+  width:100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+} 
