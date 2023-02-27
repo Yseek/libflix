@@ -5,31 +5,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Top Page</title>
     <link href="{% static 'css/styles_yun.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/styles_cej.css' %}" rel="stylesheet" />
+    {% comment %} <link href="{% static 'css/styles_cej.css' %}" rel="stylesheet" /> {% endcomment %}
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-black">
         <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" href="#">{{request.session.nick}}</a>
+            <a class="navbar-brand" href="#"><b><font style = "color: white">{{request.session.nick}}</b>님</font></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                    <li class="nav-item"><form name="menu_main" action="index"><a class= "nav-link active" aria-current="page" href="#" onclick="menu_main.submit()">메인</a></form></li>
+                    <li class="nav-item"><form name="menu_main" action="index"><a class= "nav-link active" aria-current="page" href="#" onclick="menu_main.submit()"><font style = "color: white">Main</font></a></form></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Menu</a>
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><font style = "color: white">Menu</font></a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><form name="menu_board" action="board"><a class= "dropdown-item" href="#" onclick="menu_board.submit()">게시판</a></form></li>
+                            <li><form name="menu_board" action="board"><a class= "dropdown-item" href="#" onclick="menu_board.submit()">Board</a></form></li>
                             <li><hr class="dropdown-divider" /></li>
-                            <li><form name="menu_genre" action="genre"><a class= "dropdown-item" href="#" onclick="menu_genre.submit()">장르</a></form></li>
+                            <li><form name="menu_genre" action="genre"><a class= "dropdown-item" href="#" onclick="menu_genre.submit()">Genre</a></form></li>
                             <li><form name="menu_top_rank" action="top_rank"><a class= "dropdown-item" href="#" onclick="menu_top_rank.submit()">TOP 10</a></form></li>
-                            <li><form name="menu_favorite" action="myfavorite"><a id="menu_favor" class="dropdown-item" href="#">보관함</a></form></li>
+                            <li><form name="menu_favorite" action="myfavorite"><a id="menu_favor" class="dropdown-item" href="#">My Favorites</a></form></li>
                         </ul>
                     </li>
                 </ul>
                 <form name="login_menu" class="d-flex" action="{{request.session.button_dir}}">
-                    <a class="btn btn-outline-dark" href="#" onclick="login_menu.submit()">{{request.session.button_name}}</a>
+                    <a class="btn mt-auto" href="#" onclick="login_menu.submit()" style = "background-color: white;">{{request.session.button_name}}</a>
                 </form>
             </div>
         </div>
