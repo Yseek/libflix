@@ -22,4 +22,6 @@ urlpatterns = [
     path('logout_',views.logout,name='logout_'),
     path('genre',views.genre,name='genre'),
     path('top_rank',views.top_rank,name='top_rank'),
+    path('addFavor',views.addFavor, name='addFavor'),
+    path('deleteFavor',views.deleteFavor,name='deleteFavor'),
 ]

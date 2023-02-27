@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.template import loader
 from django.http import HttpResponse
-from . models import NoticeBoard, Member,Movies
+from . models import NoticeBoard, Member,Movies,MyFavoriteList
 import datetime
 from django.http import JsonResponse
 
@@ -26,7 +26,16 @@ def play(request):
     return render(request,'play.html',res_data)
     
 def myfavorite(request):
-    return render(request,'myfavorite.html')
+    try:
+        res_data={}
+        res_data['my_movie']=MyFavoriteList.objects.filter(email=request.session.get('login_'))
+        res_data['favor']=[]
+        for i in res_data['my_movie']:
+            res_data['favor'].append(Movies.objects.get(id=i.moive_num_id))
+        return render(request,'myfavorite.html',res_data)
+    except:
+        return render(request,'myfavorite.html',res_data)
+        
 
 def board(request):
     res_data={}
@@ -89,12 +98,8 @@ def login_ok(request):
             return redirect('index')
         else:
             pass
-            # res_data['error']="비밀번호가 틀렸습니다."
-            # return render(request,'top_login.html',res_data)
     except:
         pass
-        # res_data['error']="아이디가 없습니다."
-        # return render(request,'top_login.html',res_data)
 
 
 def top_login(request):
@@ -144,3 +149,23 @@ def logout(request):
         return redirect('./')
     
 
+def addFavor(request):
+    if request.session.get('login_'):
+        res_data={}
+        res_data['my_movie']=MyFavoriteList.objects.filter(email=request.session.get('login_'))
+        res_data['favor']=[]
+        x=request.GET['second']
+        for i in res_data['my_movie']:
+            res_data['favor'].append(Movies.objects.get(pk=i.moive_num_id).title)
+        if x not in res_data['favor']:
+            MyFavoriteList(email_id=request.session.get('login_'), moive_num_id=Movies.objects.get(title=x).pk).save()
+        else:
+            pass
+        return myfavorite(request)
+    else:
+        pass
+
+def deleteFavor(request):
+    x=request.GET['second']
+    MyFavoriteList.objects.filter(email_id=request.session.get('login_'), moive_num_id=Movies.objects.get(title=x).pk).delete()
+    return myfavorite(request)
