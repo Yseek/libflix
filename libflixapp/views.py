@@ -6,13 +6,17 @@ import datetime
 from django.http import JsonResponse
 
 def index(request):
+    res_data={}
     if  request.session.get('login_') is not None:
-        return render(request,'index.html')
+        res_data['movie_info']=Movies.objects.all()
+        return render(request,'index.html',res_data)
     else:
         request.session['nick'] = ""
         request.session['button_name'] = "로그인"
         request.session['button_dir'] = 'top_login__'
-        return render(request,'index.html')
+        res_data['movie_info']=Movies.objects.all()
+        print(res_data['movie_info'])
+        return render(request,'index.html',res_data)
 
 def play(request):
     x=request.GET['first']
