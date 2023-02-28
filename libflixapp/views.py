@@ -10,7 +10,7 @@ def index(request):
         return render(request,'index.html',res_data)
     else:
         request.session['nick'] = ""
-        request.session['button_name'] = "로그인"
+        request.session['button_name'] = "Login"
         request.session['button_dir'] = 'top_login__'
         res_data['movie_info']=Movies.objects.all()
         print(res_data['movie_info'])
@@ -102,7 +102,7 @@ def login_ok(request):
         if login_.pwd== y:
             request.session['login_'] = login_.email
             request.session['nick'] = login_.nickname
-            request.session['button_name'] = "로그아웃"
+            request.session['button_name'] = "Logout"
             request.session['button_dir'] = "logout_"
             return redirect('index')
         else:
@@ -144,7 +144,7 @@ def top(request):
         return render(request,'index.html')
     else:
         request.session['nick'] = ""
-        request.session['button_name'] = "로그인"
+        request.session['button_name'] = "Login"
         request.session['button_dir'] = "top_login"
         return render(request,'index.html')
     
