@@ -32,7 +32,6 @@ def play(request):
     movie_count.count +=1
     movie_count.save()
     res_data['movies']=Movies.objects.get(title=x)
-    print(Movies.objects.get(title=x).count)
     return render(request,'play.html',res_data)
     
 def myfavorite(request):
