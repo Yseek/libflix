@@ -149,7 +149,8 @@ def logout(request):
 
 def top_rank(request):
     res_data={}
-    res_data['movie_info']=Movies.objects.all().order_by('-count')[:10]
+    res_data['movie_info']=Movies.objects.all().order_by('-count')[:5]
+    res_data['movie_info2']=zip(Movies.objects.all().order_by('-count')[5:10], [6,7,8,9,10]) 
     return render(request,'top_rank.html',res_data)
 
 def top(request):
