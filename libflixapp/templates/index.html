@@ -18,7 +18,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
         <link rel="stylesheet" href="{% static 'css/index.css' %}" />
-        <script src="{% static 'js/index.js' %}"></script>
+        <script src="{% static 'js/index.js' %}" defer></script>
     </head>
     <style>
         .hidden {
@@ -31,8 +31,8 @@
             -ms-transform: scale(1);
             -o-transform: scale(1);
             transition: all 0.3s ease-in-out;   /* 부드러운 모션을 위해 추가*/
-        }
-        .scale:hover {
+          }
+          .scale:hover {
             transform: scale(1.2);
             -webkit-transform: scale(1.2);
             -moz-transform: scale(1.2);
@@ -42,6 +42,56 @@
           .hr-dotted {
             border : 0px;
             border-top: 1px dotted silver;
+          }
+
+          .box-wrap {
+            {% comment %} width: 100vw;
+            height: 100vh; {% endcomment %}
+            display: flex;
+            justify-content: center;
+            align-items: center
+          }
+          .box {
+            position: relative;
+            width: 290px; height: auto;
+            box-shadow: 1px 1px 3px rgba(0,0,0,0.4)
+          }
+          .box img {
+            width: 100%;
+          }
+          
+          .box .info {
+            color: #fff;
+            position: absolute; left: 0; bottom: 0;
+            background: rgba(0,0,0,0.5);
+            width: 100%;
+            padding: 15px;
+            box-sizing: border-box;
+            opacity: 0;
+            transition: opacity 0.35s ease-in-out;
+          }
+          .box:hover .info {
+            opacity: 1;
+          }
+          .box .info h3 {
+            font-family: 메이플스토리;
+            font-size: 22px;
+            text-align:center;
+            padding-bottom: 0em;
+            margin-bottom: 0px;
+            
+            overflow:hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            text-transform: uppercase;
+            
+          }
+          .box .info span {
+            font-family: 메이플스토리;
+            font-size: 15px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            text-transform: uppercase;
           }
     </style>
     <body>
@@ -58,7 +108,18 @@
                             <!-- Movie image, watch-->
                             <form class="form_cls" name="{{forloop.counter}}" action="play" method="get">
                                 <input class="input_" id="{{forloop.counter0}}" type="hidden" value="{{movie.title}}" name="first">
-                                <a class="btn btn-outline-dark mt-auto scale" href="#" style="padding:0px; border:0;"><img class="card-img-top"src="{{movie.moviethum}}" alt="..." /></a>
+                                <div class="box-wrap">
+                                    <div class="box scale">
+                                        <div class="img">
+                                <a class="btn btn-outline-dark mt-auto" href="#" style="padding:0px; border:0;"><img class="card-img-top"src="{{movie.moviethum}}" alt="..." /></a>
+                                </div>
+                                <div class="info" style="padding:0px; padding-bottom:10px;border:0;">
+                                    <h3>{{movie.title}}</h3>
+                                    <center><span>{{movie.genre}} / </span><span>{{movie.director}} / </span><span>{{movie.grade}}</span></center>
+                                    
+                                </div>
+                                </div>
+                            </div>
                             </form>
                     </figure>
                     {% endfor %}
