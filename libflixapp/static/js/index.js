@@ -31,3 +31,64 @@ $(function(){
 
   });
 })
+
+document.querySelectorAll('.input1').forEach(e =>{
+    document.getElementsByClassName("btn btn-outline-dark mt-auto1")[e.id].onclick = user_check;
+    function user_check(){
+        if(("{{request.session.login_}}").length==0){
+            location.href="top_login__";
+        }else{
+            document.getElementsByClassName("form_cls1")[e.id].submit();
+        }
+    }
+})
+document.querySelectorAll('.input2').forEach(e =>{
+    document.getElementsByClassName("btn btn-outline-dark mt-auto2")[e.id].onclick = user_check;
+    function user_check(){
+        if(("{{request.session.login_}}").length==0){
+            location.href="top_login__";
+        }else{
+            document.getElementsByClassName("form_cls2")[e.id].submit();
+        }
+    }
+})
+document.querySelectorAll('.input3').forEach(e =>{
+    document.getElementsByClassName("btn btn-outline-dark mt-auto3")[e.id].onclick = user_check;
+    function user_check(){
+        if(("{{request.session.login_}}").length==0){
+            location.href="top_login__";
+        }else{
+            document.getElementsByClassName("form_cls3")[e.id].submit();
+        }
+    }
+})
+document.querySelectorAll('.input4').forEach(e =>{
+    document.getElementsByClassName("btn btn-outline-dark mt-auto4")[e.id].onclick = user_check;
+    function user_check(){
+        if(("{{request.session.login_}}").length==0){
+            location.href="top_login__";
+        }else{
+            document.getElementsByClassName("form_cls4")[e.id].submit();
+        }
+    }
+})
+document.querySelectorAll('.input5').forEach(e =>{
+    document.getElementsByClassName("btn btn-outline-dark mt-auto5")[e.id].onclick = user_check;
+    function user_check(){
+        if(("{{request.session.login_}}").length==0){
+            location.href="top_login__";
+        }else{
+            document.getElementsByClassName("form_cls5")[e.id].submit();
+        }
+    }
+})
+document.querySelectorAll('.input6').forEach(e =>{
+    document.getElementsByClassName("btn btn-outline-dark mt-auto6")[e.id].onclick = user_check;
+    function user_check(){
+        if(("{{request.session.login_}}").length==0){
+            location.href="top_login__";
+        }else{
+            document.getElementsByClassName("form_cls6")[e.id].submit();
+        }
+    }
+})
