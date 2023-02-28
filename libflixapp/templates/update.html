@@ -25,7 +25,6 @@
         <div class="text-center text-white">
             {%load static%}
             <center><a href="#"><img src = "{% static 'img\ReviseLogo.png' %}"></a>
-            {% comment %} <p class="lead fw-normal text-white-50 mb-0">Let's talk about your story with LIBFLIX</p></center> {% endcomment %}
         </div>
         </div>
     </header>
@@ -44,11 +43,6 @@
                 <td width="90%" height="70%"><textarea class="textfield" name="textfield" style = "background: white">{{update_content.contents}}</textarea></td>
             </tr>
         </table>
-        
-        <!--수정/취소 버튼-->
-        {% comment %} <div style="margin-top: 1%; margin-right: 512px; float: right"><input type="button" value="cancle" onclick="history.back()" ></div> {% endcomment %}
-        {% comment %} <div style="margin-top: 1%; margin-right: 15px; float: right"><input type="button" value="revise" onclick="f.submit()"></div> {% endcomment %}
-
         <div style="margin-top: 1%; margin-right: 703px; float: right"><form action="update" method="get"><input type="hidden" name="cancle" value="cancle"><button class="btn mt-auto" type="submit" style = "background: white;">Cancle</button></form></div>
         <div style="margin-top: 1%; margin-right: 15px; float: right"><input type="hidden" value="revise"><button class="btn mt-auto" type="submit" style = "background: white;">Revise</button></div>
 
