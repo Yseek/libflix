@@ -103,7 +103,7 @@
                     <hr class="hr-dotted">
                     <h2 class="title">액션</h2>
                     <div class="list">
-                    {% for movie in movie_info %}
+                    {% for movie in movie_info_action %}
                     <figure>
                             <!-- Movie image, watch-->
                             <form class="form_cls" name="{{forloop.counter}}" action="play" method="get">
@@ -128,7 +128,7 @@
                     <hr class="hr-dotted">
                     <h2 class="title">코미디</h2>
                     <div class="list">
-                    {% for movie in movie_info %}
+                    {% for movie in movie_info_comedy %}
                     <figure>
                         <!-- Movie image, watch-->
                         <form class="form_cls" name="{{forloop.counter}}" action="play" method="get">
@@ -142,7 +142,7 @@
                     <hr class="hr-dotted">
                     <h2 class="title">공포</h2>
                     <div class="list">
-                    {% for movie in movie_info %}
+                    {% for movie in movie_info_horror %}
                     <figure>
                         <!-- Movie image, watch-->
                         <form class="form_cls" name="{{forloop.counter}}" action="play" method="get">
@@ -156,7 +156,7 @@
                     <hr class="hr-dotted">
                     <h2 class="title">SF / 판타지</h2>
                     <div class="list">
-                    {% for movie in movie_info %}
+                    {% for movie in movie_info_sf_fan %}
                     <figure>
                         <!-- Movie image, watch-->
                         <form class="form_cls" name="{{forloop.counter}}" action="play" method="get">
@@ -170,7 +170,7 @@
                     <hr class="hr-dotted">
                     <h2 class="title">로맨스</h2>
                     <div class="list">
-                    {% for movie in movie_info %}
+                    {% for movie in movie_info_roman %}
                     <figure>
                         <!-- Movie image, watch-->
                         <form class="form_cls" name="{{forloop.counter}}" action="play" method="get">
@@ -184,7 +184,7 @@
                     <hr class="hr-dotted">
                     <h2 class="title">애니메이션</h2>
                     <div class="list">
-                    {% for movie in movie_info %}
+                    {% for movie in movie_info_ani %}
                     <figure>
                         <!-- Movie image, watch-->
                         <form class="form_cls" name="{{forloop.counter}}" action="play" method="get">
@@ -198,7 +198,6 @@
             </section>
         </section>
     </body>
-        
     <!-- Footer-->
     <footer id= "footer">
     <footer class="py-5 bg-dark">
@@ -209,7 +208,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         document.querySelectorAll('.input_').forEach(e =>{
-            document.getElementsByClassName("btn btn-outline-dark mt-auto")[e.id].onclick = user_check;
+            document.getElementsByClassName("btn btn-outline-dark mt-auto scale")[e.id].onclick = user_check;
             function user_check(){
                 if(("{{request.session.login_}}").length==0){
                     location.href="top_login__";

@@ -22,14 +22,6 @@
     </style>
     <body>
         {% include "top.html" %}
-        {% comment %} <header class="bg-dark py-4">
-            <div class="container px-3 px-lg-4 my-4">
-                <div class="text-center">
-                    <img src= "{% static '/img/movies.png' %}" />
-                    <p class="lead fw-normal text-white-50 mb-0">Life is Beautiful with LIBflix</p>
-                </div>
-            </div>
-        </header> {% endcomment %}
         <section id = "playBG">
         <center>
             <video class="box2" style="margin-top:30px" id="thumbnail_" width="800" height="450" preload="none" controls poster="">    
@@ -45,8 +37,8 @@
                         <th>즐겨찾기</th>
                     </tr>
                     <tr>
-                        {% comment %} {% static 'video/맨인블랙3.mp4' %}
-                        <p>{% static 'thumbnail/맨인블랙3.jpg' %}</p> {% endcomment %}
+                        <!-- <p>{% static 'video/럭.mp4' %}</p>  
+                        <p>{% static 'thumbnail/럭.jpg' %}</p>  url 확인용 태그 -->
                         <td>{{movies.title}}</td>
                         <td>{{movies.grade}}</td>
                         <td>{{movies.genre}}</td>
