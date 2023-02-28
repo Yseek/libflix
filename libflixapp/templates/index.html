@@ -39,6 +39,10 @@
             -ms-transform: scale(1.2);
             -o-transform: scale(1.2);
           }
+          .hr-dotted {
+            border : 0px;
+            border-top: 1px dotted silver;
+          }
     </style>
     <body>
         {% include "top.html" %}
@@ -46,6 +50,7 @@
             <section class="py-5">
                 <main>
                     <!-- 액션 -->
+                    <hr class="hr-dotted">
                     <h2 class="title">액션</h2>
                     <div class="list">
                     {% for movie in movie_info %}
@@ -53,12 +58,13 @@
                             <!-- Movie image, watch-->
                             <form class="form_cls" name="{{forloop.counter}}" action="play" method="get">
                                 <input class="input_" id="{{forloop.counter0}}" type="hidden" value="{{movie.title}}" name="first">
-                                <a class="btn btn-outline-dark mt-auto scale" href="#" style="padding:0px; border:0"><img class="card-img-top"src="{{movie.moviethum}}" alt="..." /></a>
+                                <a class="btn btn-outline-dark mt-auto scale" href="#" style="padding:0px; border:0;"><img class="card-img-top"src="{{movie.moviethum}}" alt="..." /></a>
                             </form>
                     </figure>
                     {% endfor %}
                     </div>
                     <!-- 코미디 -->
+                    <hr class="hr-dotted">
                     <h2 class="title">코미디</h2>
                     <div class="list">
                     {% for movie in movie_info %}
@@ -72,6 +78,7 @@
                     {% endfor %}
                     </div>
                     <!-- 공포 -->
+                    <hr class="hr-dotted">
                     <h2 class="title">공포</h2>
                     <div class="list">
                     {% for movie in movie_info %}
@@ -85,6 +92,7 @@
                     {% endfor %}
                     </div>
                     <!-- SF / 판타지 -->
+                    <hr class="hr-dotted">
                     <h2 class="title">SF / 판타지</h2>
                     <div class="list">
                     {% for movie in movie_info %}
@@ -98,6 +106,7 @@
                     {% endfor %}
                     </div>
                     <!-- 로맨스 -->
+                    <hr class="hr-dotted">
                     <h2 class="title">로맨스</h2>
                     <div class="list">
                     {% for movie in movie_info %}
@@ -111,6 +120,7 @@
                     {% endfor %}
                     </div>
                     <!-- 애니메이션 -->
+                    <hr class="hr-dotted">
                     <h2 class="title">애니메이션</h2>
                     <div class="list">
                     {% for movie in movie_info %}
