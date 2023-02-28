@@ -21,11 +21,9 @@
     <script src="{% static 'js/index.js' %}" defer></script>
 </head>
 <style>
-
     .hidden {
         display: none;
     } 
-
     .scale {
         transform: scale(1);
         -webkit-transform: scale(1);
@@ -33,45 +31,45 @@
         -ms-transform: scale(1);
         -o-transform: scale(1);
         transition: all 0.3s ease-in-out;   /* 부드러운 모션을 위해 추가*/
-    }
-    .scale:hover {
+      }
+      .scale:hover {
         transform: scale(1.2);
         -webkit-transform: scale(1.2);
         -moz-transform: scale(1.2);
         -ms-transform: scale(1.2);
         -o-transform: scale(1.2);
-    }
-    .hr-dotted {
+      }
+      .hr-dotted {
         border : 0px;
         border-top: 1px dotted silver;
-    }
+      }
 
-    .box-wrap {
+      .box-wrap {
         display: flex;
         justify-content: center;
         align-items: center
-    }
-    .box {
+      }
+      .box {
         position: relative;
-        width: 100%; height: auto;
-    }
-    .box img {
+        width: 290px; height: auto;
+      }
+      .box img {
         width: 100%;
-    }
+      }
       
-    .box .info {
+      .box .info {
         color: #fff;
         position: absolute; left: 0; bottom: 0;
         background: rgba(0,0,0,0.5);
-        width: 500px;
+        width: 100%;
         padding: 15px;
         box-sizing: border-box;
         opacity: 0;
         transition: opacity 0.35s ease-in-out;
-    }
-    .box:hover .info {
+      }
+      .box:hover .info {
         opacity: 1;
-    }
+      }
       .box .info h3 {
         font-family: a시네마L;
         font-size: 22px;
@@ -82,25 +80,25 @@
         overflow:hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        text-transform: uppercase;     
-    }
-    .box .info span {
+        text-transform: uppercase;
+        
+      }
+      .box .info span {
         font-family: a시네마L;
-        font-size: 18px;
+        font-size: 15px;
         text-overflow: ellipsis;
         white-space: nowrap;
         text-transform: uppercase;
-    }
+      }
 </style>
-<body>
-    {% include "top.html" %}
-    <!-- Header-->
-    <!-- Section-->
+    <body>
+        {% include "top.html" %}
         <section id = "bg2" style="height:100vh">
             <section class="py-5">
                 <main>
+                    <!-- 1위 ~ 5위 -->
                     <hr class="hr-dotted">
-                    <h2 class="title">TOP 10</h2>
+                    <h2 class="title">TOP 1~5위</h2>
                     <div class="list">
                     {% for movie in movie_info %}
                         <figure>
@@ -119,12 +117,34 @@
                                 </div>
                             </form>
                         </figure>
-                        {% endfor %}        
+                    {% endfor %}        
                     </div>
-                </div>
-            </main>
+                    <!-- 6위 ~ 10위 -->
+                    <hr class="hr-dotted">
+                    <h2 class="title">TOP 6~10위</h2>
+                    <div class="list">
+                    {% for movie,nums in movie_info2 %}
+                        <figure>
+                            <form class="form_cls" name="action{{forloop.counter}}" action="play" method="get">
+                                <input class="input_" id="action{{forloop.counter0}}" type="hidden" value="{{movie.title}}" name="first">
+                                <div class="box-wrap">
+                                    <div class="box scale">
+                                        <div class="img">
+                                            <a class="btn btn-outline-dark mt-auto" href="#" style="padding:0px; border:0;"><img class="card-img-top"src="{{movie.moviethum}}" alt="..." /></a>
+                                        </div>
+                                        <div class="info" style="padding:0px; padding-bottom:10px;border:0;">
+                                            <h3>TOP {{nums}}</h3>
+                                        <center><span>{{movie.title}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </figure>
+                    {% endfor %}      
+                    </div>
+                </main>
+            </section>
         </section>
-    </section>
     </body>
         <!-- Footer-->
         <footer id = "tr_ft">
