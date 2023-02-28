@@ -1,9 +1,7 @@
 from django.shortcuts import render, redirect
-from django.template import loader
-from django.http import HttpResponse
 from . models import NoticeBoard, Member,Movies,MyFavoriteList
 import datetime
-from django.http import JsonResponse
+
 
 def index(request):
     res_data={}
@@ -138,9 +136,6 @@ def logout(request):
         del(request.session['login_'])
     return redirect('index')  
 
-def genre(request):
-    return render(request,'genre.html')
-
 def top_rank(request):
     return render(request,'top_rank.html')
 
@@ -178,7 +173,6 @@ def deleteFavor(request):
     x=request.GET['second']
     MyFavoriteList.objects.filter(email_id=request.session.get('login_'), moive_num_id=Movies.objects.get(title=x).pk).delete()
     return myfavorite(request)
-
 
 def search(request):
     x=request.GET['q']
