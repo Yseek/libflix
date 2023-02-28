@@ -42,6 +42,7 @@
                         <th>장  르</th>
                         <th>감  독</th>
                         <th>런타임</th>
+                        <th>즐겨찾기</th>
                     </tr>
                     <tr>
                         <!-- <p>{% static 'video/세얼간이.mp4' %}</p>  
@@ -50,7 +51,8 @@
                         <td>{{movies.grade}}</td>
                         <td>{{movies.genre}}</td>
                         <td>{{movies.director}}</td>
-                        <td>{{movies.rtime}}</td> 
+                        <td>{{movies.rtime}}</td>
+                        <td><a class="btn mt-auto" href="#"><font style = "color: white">추 가</font></a></td> 
                     </tr>
                 </table>
                 <p id="url" style="visibility: hidden;">{{movies.movieurl}}</p>

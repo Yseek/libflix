@@ -11,7 +11,6 @@ class Member(models.Model):
 class NoticeBoard(models.Model):
     postname = models.CharField(max_length=70)
     contents = models.TextField()
-    password = models.CharField(max_length=50)
     writer = models.ForeignKey('Member', on_delete=models.CASCADE)
     rdate = models.DateTimeField()
     def __str__(self):
