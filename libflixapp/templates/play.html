@@ -52,16 +52,20 @@
                         <td>{{movies.genre}}</td>
                         <td>{{movies.director}}</td>
                         <td>{{movies.rtime}}</td>
-                        <td><a class="btn mt-auto" href="#"><font style = "color: white">추 가</font></a></td> 
+                        <td>
+                            <form class="favor_cls" name="add_favor" action="addFavor" method="get">
+                                <input class="input2" id="add_favor_id" type="hidden" value="{{movies.title}}" name="second">
+                                <button class="btn mt-auto" href="#" type="submit"><font style = "color: white">추 가</font></button>
+                            </form>
+                        </td> 
                     </tr>
                 </table>
-                <p id="url" style="visibility: hidden;">{{movies.movieurl}}</p>
-                <p id="thumthum" style="visibility: hidden;">{{movies.moviethum}}</p>
+            <p id="url" style="visibility: hidden;">{{movies.movieurl}}</p>
+            <p id="thumthum" style="visibility: hidden;">{{movies.moviethum}}</p>
         </center>
             <script>
                 x=document.getElementById('url').innerHTML
                 document.getElementById('source_').src=x
-
                 y=document.getElementById('thumthum').innerHTML
                 document.getElementById('thumbnail_').poster=y
             </script>
