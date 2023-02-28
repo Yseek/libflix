@@ -23,11 +23,26 @@
     <style>
         .hidden {
             display: none;
-        }
+        } 
+        .scale {
+            transform: scale(1);
+            -webkit-transform: scale(1);
+            -moz-transform: scale(1);
+            -ms-transform: scale(1);
+            -o-transform: scale(1);
+            transition: all 0.3s ease-in-out;   /* 부드러운 모션을 위해 추가*/
+          }
+          .scale:hover {
+            transform: scale(1.2);
+            -webkit-transform: scale(1.2);
+            -moz-transform: scale(1.2);
+            -ms-transform: scale(1.2);
+            -o-transform: scale(1.2);
+          }
     </style>
     <body>
         {% include "top.html" %}
-        <section id = "bg">
+        <section id = "bg2">
             <section class="py-5">
                 <main>
                     <!-- 액션 -->
@@ -38,7 +53,7 @@
                             <!-- Movie image, watch-->
                             <form class="form_cls" name="{{forloop.counter}}" action="play" method="get">
                                 <input class="input_" id="{{forloop.counter0}}" type="hidden" value="{{movie.title}}" name="first">
-                                <a class="btn btn-outline-dark mt-auto" href="#" ><img class="card-img-top" src="{{movie.moviethum}}" alt="..." /></a>
+                                <a class="btn btn-outline-dark mt-auto scale" href="#" style="padding:0px; border:0"><img class="card-img-top"src="{{movie.moviethum}}" alt="..." /></a>
                             </form>
                     </figure>
                     {% endfor %}
@@ -51,7 +66,7 @@
                         <!-- Movie image, watch-->
                         <form class="form_cls" name="{{forloop.counter}}" action="play" method="get">
                             <input class="input_" id="{{forloop.counter0}}" type="hidden" value="{{movie.title}}" name="first">
-                            <a class="btn btn-outline-dark mt-auto" href="#" ><img class="card-img-top" src="{{movie.moviethum}}" alt="..." /></a>
+                            <a class="btn btn-outline-dark mt-auto scale" href="#" style="padding:0px; border:0"><img class="card-img-top"src="{{movie.moviethum}}" alt="..." /></a>
                         </form>
                     </figure>
                     {% endfor %}
@@ -64,7 +79,7 @@
                         <!-- Movie image, watch-->
                         <form class="form_cls" name="{{forloop.counter}}" action="play" method="get">
                             <input class="input_" id="{{forloop.counter0}}" type="hidden" value="{{movie.title}}" name="first">
-                            <a class="btn btn-outline-dark mt-auto" href="#" ><img class="card-img-top" src="{{movie.moviethum}}" alt="..." /></a>
+                            <a class="btn btn-outline-dark mt-auto scale" href="#" style="padding:0px; border:0"><img class="card-img-top"src="{{movie.moviethum}}" alt="..." /></a>
                         </form>
                     </figure>
                     {% endfor %}
@@ -77,7 +92,7 @@
                         <!-- Movie image, watch-->
                         <form class="form_cls" name="{{forloop.counter}}" action="play" method="get">
                             <input class="input_" id="{{forloop.counter0}}" type="hidden" value="{{movie.title}}" name="first">
-                            <a class="btn btn-outline-dark mt-auto" href="#" ><img class="card-img-top" src="{{movie.moviethum}}" alt="..." /></a>
+                            <a class="btn btn-outline-dark mt-auto scale" href="#" style="padding:0px; border:0"><img class="card-img-top"src="{{movie.moviethum}}" alt="..." /></a>
                         </form>
                     </figure>
                     {% endfor %}
@@ -90,7 +105,7 @@
                         <!-- Movie image, watch-->
                         <form class="form_cls" name="{{forloop.counter}}" action="play" method="get">
                             <input class="input_" id="{{forloop.counter0}}" type="hidden" value="{{movie.title}}" name="first">
-                            <a class="btn btn-outline-dark mt-auto" href="#" ><img class="card-img-top" src="{{movie.moviethum}}" alt="..." /></a>
+                            <a class="btn btn-outline-dark mt-auto scale" href="#" style="padding:0px; border:0"><img class="card-img-top"src="{{movie.moviethum}}" alt="..." /></a>
                         </form>
                     </figure>
                     {% endfor %}
@@ -103,7 +118,7 @@
                         <!-- Movie image, watch-->
                         <form class="form_cls" name="{{forloop.counter}}" action="play" method="get">
                             <input class="input_" id="{{forloop.counter0}}" type="hidden" value="{{movie.title}}" name="first">
-                            <a class="btn btn-outline-dark mt-auto" href="#" ><img class="card-img-top" src="{{movie.moviethum}}" alt="..." /></a>
+                            <a class="btn btn-outline-dark mt-auto scale" href="#" style="padding:0px; border:0"><img class="card-img-top"src="{{movie.moviethum}}" alt="..." /></a>
                         </form>
                     </figure>
                     {% endfor %}
