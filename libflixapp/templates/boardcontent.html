@@ -23,6 +23,7 @@
     td {
         padding: 10px
     }
+
 </style>
 <body id = "bady">
     {% include "top.html" %}
@@ -31,7 +32,7 @@
     <div class="container px-3 px-lg-3 my-4">
         <div class="text-center text-white">
             {%load static%}
-            <center><a href="board"><img src = "{% static 'imgs\board-logo.png' %}"></a>
+            <center><a href="board"><img src = "{% static 'img\postLogo.png' %}"></a>
         </div>
         </div>
     </header>
@@ -53,9 +54,9 @@
     </table>        
     <center>
     <!--목록/수정/삭제버튼-->
-    <div style="margin-right: 385px; float: right"><form action="delete" method="get"><input type="hidden" name="delete_" value="{{content.id}}"><button class="btn mt-auto" type="submit" style = "background: white;">delete</button></form></div>
-    <div style="margin-right: 15px; float: right"><form action="update" method="get"><input type="hidden" name="update_" value="{{content.id}}"><a class="btn mt-auto" href ="update?update_={{content.id}}" style = "background: white;">revise</a></form></div>
-    <div style="margin-right: 15px; float: right"><a class="btn mt-auto" href ="board?" style = "background: white;">list</a></div>
+    <div style="margin-right: 385px; float: right"><form action="delete" method="get"><input type="hidden" name="delete_" value="{{content.id}}"><button class="btn mt-auto" type="submit" style = "background: white;">Delete</button></form></div>
+    <div style="margin-right: 15px; float: right"><form action="update" method="get"><input type="hidden" name="update_" value="{{content.id}}"><a class="btn mt-auto" href ="update?update_={{content.id}}" style = "background: white;">Revise</a></form></div>
+    <div style="margin-right: 15px; float: right"><a class="btn mt-auto" href ="board?" style = "background: white;">List</a></div>
     <br><br><br><br><br><br><br><br>
     </center>
 </body>
