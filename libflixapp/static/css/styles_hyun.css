@@ -13,6 +13,9 @@
  @import url(./reset.css);
  @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
  
+
+
+
  html,
  body {
    height: 100%;
@@ -881,21 +884,6 @@
   :root {
     scroll-behavior: smooth;
   }
-}
-
-#bg{
-  background: url('https://assets.nflxext.com/ffe/siteui/vlv3/9737377e-a430-4d13-ad6c-874c54837c49/945eec79-6856-4d95-b4c6-83ff5292f33d/KR-ko-20220111-popsignuptwoweeks-perspective_alpha_website_large.jpg');
-  /*!background:url('img/bg.png') no-repeat;*/
-  object-fit: cover;
-}
-
-#bg:before{
-  content: '';
-  background-image: linear-gradient(to right, black, transparent);
-  position: absolute;
-	left: 0;
-  height:1000px;
-  width:50%;
 }
 
 body {
@@ -12116,3 +12104,10 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+
+#footer{
+  width:100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+} 

@@ -18,19 +18,26 @@
         .hidden {
             display: none;
         }
+
+        #bg{
+            background-image: url({% static 'img\bg.png' %});
+            height: 75vh;
+        }
+
     </style>
     <body>
         {% include "top.html" %}
         <!-- Header-->
-        <header class="bg-dark py-4">
+        {% comment %} <header class="bg-dark py-4">
             <div class="container px-3 px-lg-4 my-4">
                 <div class="text-center">
                     {%load static%}
-                    <img src= "{% static '/imgs/LIBFLIX_logo.png' %}" />
-                    <p class="lead fw-normal text-white-50 mb-0">Life is Beautiful with LIBflix</p>
+                    <img src= "{% static 'img/MF_logo.png' %}" />
+                    {% comment %} <p class="lead fw-normal text-white-50 mb-0">Life is Beautiful with LIBflix</p> 
                 </div>
             </div>
-        </header>
+        </header> {% endcomment %}
+        
         <!-- Section-->
         <section id = "bg">
             <section class="py-5">
@@ -59,7 +66,7 @@
                                         </form>
                                         <form class="favor_cls" name="{{forloop.counter}}" action="deleteFavor" method="get">
                                             <input class="input2" id="{{forloop.counter0}}" type="hidden" value="{{movie.title}}" name="second">
-                                            <a class="btn btn-outline-dark mt-auto1" href="#" >삭제</a>
+                                            <a class="btn btn-outline-dark mt-auto1" href="#" >&nbsp;삭제&nbsp;</a>
                                         </form>
                                         <div align ="right">
                                             <!-- 체크박스로 선택 됐는지 안됐는지 확인 바뀔떄마다 changeCheckBox이벤트 발생 -->
@@ -75,6 +82,7 @@
                     </div>
                 </div>
         <!-- Footer-->
+        <footer id = "footer">
         <footer class="py-5 bg-dark">
             <div class="container"><p class="m-0 text-center text-white">&copy; 2023 Fantastic4, Inc .</p></div>
         </footer>

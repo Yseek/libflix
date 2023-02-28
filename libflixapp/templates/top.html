@@ -15,20 +15,22 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                    <li class="nav-item"><form name="menu_main" action="index"><a class= "nav-link active" aria-current="page" href="#" onclick="menu_main.submit()"><font style = "color: white">Main</font></a></form></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><font style = "color: white">Menu</font></a>
+                    {% comment %} <div style = "margin-top: 17px"><font style = "color: white;">확인</font></div> {% endcomment %}
+                    <div style = "margin-top: 10px"><li class="nav-item"><form name="menu_main" action="index"><a class= "nav-link active" aria-current="page" href="#" onclick="menu_main.submit()"><font style = "color: white">Main</font></a></form></li></div>
+                    <div style = "margin-top: 10px"><li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><font style = "color: white;">Menu</font></a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><form name="menu_board" action="board"><a class= "dropdown-item" href="#" onclick="menu_board.submit()">Board</a></form></li>
                             <li><hr class="dropdown-divider" /></li>
                             <li><form name="menu_top_rank" action="top_rank"><a class= "dropdown-item" href="#" onclick="menu_top_rank.submit()">TOP 10</a></form></li>
                             <li><form name="menu_favorite" action="myfavorite"><a id="menu_favor" class="dropdown-item" href="#">My Favorites</a></form></li>
-                        </ul>
+                        </ul></div>
+                        <li class="nav-item"><a class= "nav-link active" aria-current="page" href="#" onclick="menu_main.submit()" style = "margin-bottom: 1px; margin-left: 312px"><img src = "{% static 'img\realLogo.png' %}"></a></li>
                     </li>
                 </ul>
                 <form name="login_menu" class="d-flex" action="{{request.session.button_dir}}">
                     {% comment %} <a class="btn mt-auto" href="#" onclick="login_menu.submit()" style = "background-color: white;">{{request.session.button_name}}</a> {% endcomment %}
-                    <a class="btn mt-auto" href="#" onclick="login_menu.submit()"><font style = "color: white">{{request.session.button_name}}</font></a>
+                    <a class="btn mt-auto" href="#" onclick="login_menu.submit()" style = "background-color: white;"><font style = "color: black">{{request.session.button_name}}</font></a>
                 </form>
             </div>
         </div>
