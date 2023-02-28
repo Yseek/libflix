@@ -68,12 +68,6 @@
                                             <input class="input2" id="{{forloop.counter0}}" type="hidden" value="{{movie.title}}" name="second">
                                             <a class="btn btn-outline-dark mt-auto1" href="#" >&nbsp;삭제&nbsp;</a>
                                         </form>
-                                        <div align ="right">
-                                            <!-- 체크박스로 선택 됐는지 안됐는지 확인 바뀔떄마다 changeCheckBox이벤트 발생 -->
-                                            <input class="hidden" type="checkbox" id="{{forloop.counter}}" onchange="changeCheckBox(event)">
-                                            <!-- label을 사용하여 input을 선택 가능 -->
-                                            <label class="bi-star" for="{{forloop.counter}}" style="cursor:pointer;"></label>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -93,29 +87,6 @@
     </section>
     </div>
     </body>
-    <script type="text/javascript">
-        window.onload = () => {
-            document.querySelectorAll('.hidden').forEach(e => {
-                if (e.checked) {
-                    document.querySelector('[for="'+e.id+'"]').className = "bi-star-fill"
-                    document.querySelector('[for="'+e.id+'"]').style.color="rgb(255, 210, 48)"
-                } else {
-                    document.querySelector('[for="'+e.id+'"]').className = "bi-star"
-                    document.querySelector('[for="'+e.id+'"]').style.color="rgb(0, 0, 0)"
-                }
-            })
-        }
-
-        function changeCheckBox(e) {
-        if (e.target.checked) {
-            document.querySelector('[for="'+e.target.id+'"]').className = "bi-star-fill"
-            document.querySelector('[for="'+e.target.id+'"]').style.color="rgb(255, 210, 48)"
-        } else {
-            document.querySelector('[for="'+e.target.id+'"]').className = "bi-star"
-            document.querySelector('[for="'+e.target.id+'"]').style.color="rgb(0, 0, 0)"
-        }
-    }
-    </script>
     <script>
         document.querySelectorAll('.input_').forEach(e =>{
             document.getElementsByClassName("btn btn-outline-dark mt-auto")[e.id].onclick = user_check;
