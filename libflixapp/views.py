@@ -1,9 +1,7 @@
 from django.shortcuts import render, redirect
-from django.template import loader
-from django.http import HttpResponse
 from . models import NoticeBoard, Member,Movies,MyFavoriteList
 import datetime
-from django.http import JsonResponse
+
 
 def index(request):
     res_data={}
@@ -52,17 +50,13 @@ def write(request):
     if request.session.get('login_'):
         return render(request,'write.html')
     else:
-
         return top_login(request)
         
-
 def write_ok(request):
     x = request.POST['title']
     y = request.POST['textfield']
-    pwd = request.POST['pwd']
     nowDatetime = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    pwd = pwd
-    NoticeBoard(postname=x,contents=y,password=pwd,rdate=nowDatetime,writer=Member.objects.get(email=request.session['login_'])).save()
+    NoticeBoard(postname=x,contents=y,rdate=nowDatetime,writer=Member.objects.get(email=request.session['login_'])).save()
     return redirect('/libflixapp/board')
 
 def delete(request):
@@ -93,11 +87,9 @@ def update_ok(request,id):
     update_=NoticeBoard.objects.get(id=id)
     x = request.POST['title']
     y = request.POST['textfield']
-    pwd = request.POST['pwd']
     nowDatetime = datetime.datetime.now().strftime('%Y-%m-%d')
     update_.postname=x
     update_.contents=y
-    update_.password=pwd
     update_.rdate=nowDatetime
     update_.save()
     return redirect('/libflixapp/board')
@@ -144,9 +136,6 @@ def logout(request):
         del(request.session['login_'])
     return redirect('index')  
 
-def genre(request):
-    return render(request,'genre.html')
-
 def top_rank(request):
     return render(request,'top_rank.html')
 
@@ -184,7 +173,6 @@ def deleteFavor(request):
     x=request.GET['second']
     MyFavoriteList.objects.filter(email_id=request.session.get('login_'), moive_num_id=Movies.objects.get(title=x).pk).delete()
     return myfavorite(request)
-
 
 def search(request):
     x=request.GET['q']

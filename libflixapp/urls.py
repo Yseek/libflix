@@ -1,6 +1,5 @@
 from django.urls import path
 from . import views
-from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
@@ -20,7 +19,6 @@ urlpatterns = [
     path('top_join',views.top_join, name='top_join'),
     path('join_ok',views.join_ok, name='join_ok'),
     path('logout_',views.logout,name='logout_'),
-    path('genre',views.genre,name='genre'),
     path('top_rank',views.top_rank,name='top_rank'),
     path('addFavor',views.addFavor, name='addFavor'),
     path('deleteFavor',views.deleteFavor,name='deleteFavor'),

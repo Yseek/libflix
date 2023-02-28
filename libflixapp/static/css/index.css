@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 60px 0;
+}
+
+.title {
+  margin-left: 12px;
+  margin-bottom: 8px;
+  color: #fff;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.list {
+  margin-bottom: 48px;
+}
+
+.list figure img {
+  width: 100%;
+  height: auto;
+}
+
+.slider .slick-list {
+  margin: 0 -10px;
+}
+
+.slick-slide {
+  margin: 0 10px;
+}
