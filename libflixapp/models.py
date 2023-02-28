@@ -25,6 +25,7 @@ class Movies(models.Model):
     rtime = models.TextField()
     movieurl = models.TextField()
     moviethum = models.TextField()
+    count = models.IntegerField(default=0)
     def __str__(self):
         return self.title
 
