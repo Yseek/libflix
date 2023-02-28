@@ -37,7 +37,8 @@
         <center>
         <table width="500" height="400">
             <tr>
-                <td width="70%" height="10%"><font style = "color: white;">Title: <input name="title" value="{{update_content.postname}}"></font></td>
+                {% comment %} <div class="title_margin"><a class="btn" style="background:white; width:90px">Subject</a></div> {% endcomment %}
+                <td width="70%" height="10%"><a class="btn" style="background:white; height: 31px; margin-bottom: 2px;"><font style = "color: black; margin-bottom: 2px;">Title</a></font>&nbsp;<input name="title" value="{{update_content.postname}}"></td>
             </tr>
             <tr>
                 <td width="90%" height="70%"><textarea class="textfield" name="textfield" style = "background: white">{{update_content.contents}}</textarea></td>

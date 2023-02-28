@@ -28,15 +28,16 @@
     <body>
         {% include "top.html" %}
         <!-- Header-->
-        <header class="bg-dark py-4">
+        {% comment %} <header class="bg-dark py-4">
             <div class="container px-3 px-lg-4 my-4">
                 <div class="text-center">
                     {%load static%}
                     <img src= "{% static 'img/MF_logo.png' %}" />
-                    {% comment %} <p class="lead fw-normal text-white-50 mb-0">Life is Beautiful with LIBflix</p> {% endcomment %}
+                    {% comment %} <p class="lead fw-normal text-white-50 mb-0">Life is Beautiful with LIBflix</p> 
                 </div>
             </div>
-        </header>
+        </header> {% endcomment %}
+        
         <!-- Section-->
         <section id = "bg">
             <section class="py-5">
