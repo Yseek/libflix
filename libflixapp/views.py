@@ -6,14 +6,23 @@ import datetime
 def index(request):
     res_data={}
     if  request.session.get('login_') is not None:
-        res_data['movie_info']=Movies.objects.all()
+        res_data['movie_info_action']=Movies.objects.filter(genre='액션').all()
+        res_data['movie_info_comedy']=Movies.objects.filter(genre='코미디').all()
+        res_data['movie_info_horror']=Movies.objects.filter(genre='공포').all()
+        res_data['movie_info_sf_fan']=Movies.objects.filter(genre='SF/판타지').all()
+        res_data['movie_info_roman']=Movies.objects.filter(genre='로맨스').all()
+        res_data['movie_info_ani']=Movies.objects.filter(genre='애니메이션').all()
         return render(request,'index.html',res_data)
     else:
         request.session['nick'] = ""
         request.session['button_name'] = "Login"
         request.session['button_dir'] = 'top_login__'
-        res_data['movie_info']=Movies.objects.all()
-        print(res_data['movie_info'])
+        res_data['movie_info_action']=Movies.objects.filter(genre='액션').all()
+        res_data['movie_info_comedy']=Movies.objects.filter(genre='코미디').all()
+        res_data['movie_info_horror']=Movies.objects.filter(genre='공포').all()
+        res_data['movie_info_sf_fan']=Movies.objects.filter(genre='SF/판타지').all()
+        res_data['movie_info_roman']=Movies.objects.filter(genre='로맨스').all()
+        res_data['movie_info_ani']=Movies.objects.filter(genre='애니메이션').all()
         return render(request,'index.html',res_data)
 
 def play(request):
