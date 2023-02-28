@@ -18,9 +18,12 @@ def index(request):
 
 def play(request):
     x=request.GET['first']
-    print(x)
     res_data={}
+    movie_count=Movies.objects.get(title=x)
+    movie_count.count +=1
+    movie_count.save()
     res_data['movies']=Movies.objects.get(title=x)
+    print(Movies.objects.get(title=x).count)
     return render(request,'play.html',res_data)
     
 def myfavorite(request):
@@ -137,7 +140,9 @@ def logout(request):
     return redirect('index')  
 
 def top_rank(request):
-    return render(request,'top_rank.html')
+    res_data={}
+    res_data['movie_info']=Movies.objects.all().order_by('-count')[:10]
+    return render(request,'top_rank.html',res_data)
 
 def top(request):
     if  request.session.get('login_') is not None:

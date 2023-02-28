@@ -43,354 +43,42 @@
     <div id = "body-content_tr">
     {% include "top.html" %}
     <!-- Header-->
-{% comment %} <header class="bg-dark py-2">
-    <div class="container px-4 px-lg- my-5">
-        <div class="text-center text-white">
-            {%load static%}
-            <center><a href="#"><img src = "{% static 'img\top10.png' %}"></a>
-            <!--<p class="lead fw-normal text-white-50 mb-0">Let's talk about your story with LIBFLIX</p></center>-->
-        </div>
-    </div>
-</header>  {% endcomment %}
-
     <!-- Section-->
     <section id = "Top10_section">
     <section class="py-5">
         <div class="container px-4 px-lg-5 mt-5">
-        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-5 justify-content-center">
-            <div class="col mb-5">
-                <div class="card h-100">
-                    <!-- Movie image-->
-                    {%load static%}
-                    <img class="card-img-top" src="{% static 'img\thumbnail.png' %}" alt="..." />
-                    <!-- Product details-->
-                    <div class="card-body p-4">
-                        <div class="text-center">
-                            <!-- Product name-->
-                            <h5 class="fw-bolder">Top 1</h5>
-                            <!-- Product price-->
-                            장르: oo
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-5 justify-content-center">
+                {% for movie in movie_info %}
+                <div class="col mb-5">
+                    <div class="card h-100">
+                    <!-- Product image-->
+                        {%load static%}
+                        <img class="card-img-top" src= "{{movie.moviethum}}" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">TOP {{forloop.counter}}</h5>
+                                <h5 class="fw-bolder">{{movie.title}}</h5>
+                                <font size = "3">장르: {{movie.genre}}</font>
                             </div>
-                    </div>
-                    <!-- Product actions-->
-                <!--Watch버튼 + 별표시-->
-                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                    <div class="text-center">
-                        <form class="form_cls" name="watch_1" action="play" method="get">
-                            <input class="input_" id="0" type="hidden" value="아바타" name="first">
-                            <a id="index_1" class="btn btn-outline-dark mt-auto" href="#" >Watch</a>
-                        </form>
-                        <div align ="right">
-                            <!-- 체크박스로 선택 됐는지 안됐는지 확인 바뀔떄마다 changeCheckBox이벤트 발생 -->
-                            <input class="hidden" type="checkbox" id="star1" onchange="changeCheckBox(event)">
-                            <!-- label을 사용하여 input을 선택 가능 -->
-                            <label class="bi-star" for="star1" style="cursor:pointer;"></label>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center">
+                                <form class="form_cls" name="{{forloop.counter}}" action="play" method="get">
+                                    <input class="input_" id="{{forloop.counter0}}" type="hidden" value="{{movie.title}}" name="first">
+                                    <a class="btn btn-outline-dark mt-auto" href="#" >Watch</a>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
-                </div>
+                {% endfor %}
             </div>
-
-                    <div class="col mb-5">
-                    <div class="card h-100">
-                        <!-- Movie image-->
-                        {%load static%}
-                        <img class="card-img-top" src="{% static 'img\thumbnail.png' %}" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Top 2</h5>
-                                <!-- Product price-->
-                                장르: oo
-                                </div>
-                        </div>
-                        <!-- Product actions-->
-                    <!--Watch버튼 + 별표시-->
-                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center">
-                            <form class="form_cls" name="watch_1" action="play" method="get">
-                                <input class="input_" id="0" type="hidden" value="아바타" name="first">
-                                <a id="index_1" class="btn btn-outline-dark mt-auto" href="#" >Watch</a>
-                            </form>
-                            <div align ="right">
-                                <!-- 체크박스로 선택 됐는지 안됐는지 확인 바뀔떄마다 changeCheckBox이벤트 발생 -->
-                                <input class="hidden" type="checkbox" id="star1" onchange="changeCheckBox(event)">
-                                <!-- label을 사용하여 input을 선택 가능 -->
-                                <label class="bi-star" for="star1" style="cursor:pointer;"></label>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-    
-                <div class="col mb-5">
-                    <div class="card h-100">
-                        <!-- Movie image-->
-                        {%load static%}
-                        <img class="card-img-top" src="{% static 'img\thumbnail.png' %}" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Top 3</h5>
-                                <!-- Product price-->
-                                장르: oo
-                                </div>
-                        </div>
-                        <!-- Product actions-->
-                    <!--Watch버튼 + 별표시-->
-                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center">
-                            <form class="form_cls" name="watch_1" action="play" method="get">
-                                <input class="input_" id="0" type="hidden" value="아바타" name="first">
-                                <a id="index_1" class="btn btn-outline-dark mt-auto" href="#" >Watch</a>
-                            </form>
-                            <div align ="right">
-                                <!-- 체크박스로 선택 됐는지 안됐는지 확인 바뀔떄마다 changeCheckBox이벤트 발생 -->
-                                <input class="hidden" type="checkbox" id="star1" onchange="changeCheckBox(event)">
-                                <!-- label을 사용하여 input을 선택 가능 -->
-                                <label class="bi-star" for="star1" style="cursor:pointer;"></label>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-
-                <div class="col mb-5">
-                    <div class="card h-100">
-                        <!-- Movie image-->
-                        {%load static%}
-                        <img class="card-img-top" src="{% static 'img\thumbnail.png' %}" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Top 4</h5>
-                                <!-- Product price-->
-                                장르: oo
-                                </div>
-                        </div>
-                        <!-- Product actions-->
-                    <!--Watch버튼 + 별표시-->
-                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center">
-                            <form class="form_cls" name="watch_1" action="play" method="get">
-                                <input class="input_" id="0" type="hidden" value="아바타" name="first">
-                                <a id="index_1" class="btn btn-outline-dark mt-auto" href="#" >Watch</a>
-                            </form>
-                            <div align ="right">
-                                <!-- 체크박스로 선택 됐는지 안됐는지 확인 바뀔떄마다 changeCheckBox이벤트 발생 -->
-                                <input class="hidden" type="checkbox" id="star1" onchange="changeCheckBox(event)">
-                                <!-- label을 사용하여 input을 선택 가능 -->
-                                <label class="bi-star" for="star1" style="cursor:pointer;"></label>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-
-                <div class="col mb-5">
-                    <div class="card h-100">
-                        <!-- Movie image-->
-                        {%load static%}
-                        <img class="card-img-top" src="{% static 'img\thumbnail.png' %}" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Top 5</h5>
-                                <!-- Product price-->
-                                장르: oo
-                                </div>
-                        </div>
-                        <!-- Product actions-->
-                    <!--Watch버튼 + 별표시-->
-                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center">
-                            <form class="form_cls" name="watch_1" action="play" method="get">
-                                <input class="input_" id="0" type="hidden" value="아바타" name="first">
-                                <a id="index_1" class="btn btn-outline-dark mt-auto" href="#" >Watch</a>
-                            </form>
-                            <div align ="right">
-                                <!-- 체크박스로 선택 됐는지 안됐는지 확인 바뀔떄마다 changeCheckBox이벤트 발생 -->
-                                <input class="hidden" type="checkbox" id="star1" onchange="changeCheckBox(event)">
-                                <!-- label을 사용하여 input을 선택 가능 -->
-                                <label class="bi-star" for="star1" style="cursor:pointer;"></label>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-
-                <div class="col mb-5">
-                    <div class="card h-100">
-                        <!-- Movie image-->
-                        {%load static%}
-                        <img class="card-img-top" src="{% static 'img\thumbnail.png' %}" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Top 6</h5>
-                                <!-- Product price-->
-                                장르: oo
-                                </div>
-                        </div>
-                        <!-- Product actions-->
-                    <!--Watch버튼 + 별표시-->
-                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center">
-                            <form class="form_cls" name="watch_1" action="play" method="get">
-                                <input class="input_" id="0" type="hidden" value="아바타" name="first">
-                                <a id="index_1" class="btn btn-outline-dark mt-auto" href="#" >Watch</a>
-                            </form>
-                            <div align ="right">
-                                <!-- 체크박스로 선택 됐는지 안됐는지 확인 바뀔떄마다 changeCheckBox이벤트 발생 -->
-                                <input class="hidden" type="checkbox" id="star1" onchange="changeCheckBox(event)">
-                                <!-- label을 사용하여 input을 선택 가능 -->
-                                <label class="bi-star" for="star1" style="cursor:pointer;"></label>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-
-                <div class="col mb-5">
-                    <div class="card h-100">
-                        <!-- Movie image-->
-                        {%load static%}
-                        <img class="card-img-top" src="{% static 'img\thumbnail.png' %}" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Top 7</h5>
-                                <!-- Product price-->
-                                장르: oo
-                                </div>
-                        </div>
-                        <!-- Product actions-->
-                    <!--Watch버튼 + 별표시-->
-                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center">
-                            <form class="form_cls" name="watch_1" action="play" method="get">
-                                <input class="input_" id="0" type="hidden" value="아바타" name="first">
-                                <a id="index_1" class="btn btn-outline-dark mt-auto" href="#" >Watch</a>
-                            </form>
-                            <div align ="right">
-                                <!-- 체크박스로 선택 됐는지 안됐는지 확인 바뀔떄마다 changeCheckBox이벤트 발생 -->
-                                <input class="hidden" type="checkbox" id="star1" onchange="changeCheckBox(event)">
-                                <!-- label을 사용하여 input을 선택 가능 -->
-                                <label class="bi-star" for="star1" style="cursor:pointer;"></label>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-
-                <div class="col mb-5">
-                    <div class="card h-100">
-                        <!-- Movie image-->
-                        {%load static%}
-                        <img class="card-img-top" src="{% static 'img\thumbnail.png' %}" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Top 8</h5>
-                                <!-- Product price-->
-                                장르: oo
-                                </div>
-                        </div>
-                        <!-- Product actions-->
-                    <!--Watch버튼 + 별표시-->
-                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center">
-                            <form class="form_cls" name="watch_1" action="play" method="get">
-                                <input class="input_" id="0" type="hidden" value="아바타" name="first">
-                                <a id="index_1" class="btn btn-outline-dark mt-auto" href="#" >Watch</a>
-                            </form>
-                            <div align ="right">
-                                <!-- 체크박스로 선택 됐는지 안됐는지 확인 바뀔떄마다 changeCheckBox이벤트 발생 -->
-                                <input class="hidden" type="checkbox" id="star1" onchange="changeCheckBox(event)">
-                                <!-- label을 사용하여 input을 선택 가능 -->
-                                <label class="bi-star" for="star1" style="cursor:pointer;"></label>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-
-                <div class="col mb-5">
-                    <div class="card h-100">
-                        <!-- Movie image-->
-                        {%load static%}
-                        <img class="card-img-top" src="{% static 'img\thumbnail.png' %}" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Top 9</h5>
-                                <!-- Product price-->
-                                장르: oo
-                                </div>
-                        </div>
-                        <!-- Product actions-->
-                    <!--Watch버튼 + 별표시-->
-                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center">
-                            <form class="form_cls" name="watch_1" action="play" method="get">
-                                <input class="input_" id="0" type="hidden" value="아바타" name="first">
-                                <a id="index_1" class="btn btn-outline-dark mt-auto" href="#" >Watch</a>
-                            </form>
-                            <div align ="right">
-                                <!-- 체크박스로 선택 됐는지 안됐는지 확인 바뀔떄마다 changeCheckBox이벤트 발생 -->
-                                <input class="hidden" type="checkbox" id="star1" onchange="changeCheckBox(event)">
-                                <!-- label을 사용하여 input을 선택 가능 -->
-                                <label class="bi-star" for="star1" style="cursor:pointer;"></label>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-
-                <div class="col mb-5">
-                    <div class="card h-100">
-                        <!-- Movie image-->
-                        {%load static%}
-                        <img class="card-img-top" src="{% static 'img\thumbnail.png' %}" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Top 10</h5>
-                                <!-- Product price-->
-                                장르: oo
-                                </div>
-                        </div>
-                        <!-- Product actions-->
-                    <!--Watch버튼 + 별표시-->
-                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center">
-                            <form class="form_cls" name="watch_1" action="play" method="get">
-                                <input class="input_" id="0" type="hidden" value="아바타" name="first">
-                                <a id="index_1" class="btn btn-outline-dark mt-auto" href="#" >Watch</a>
-                            </form>
-                            <div align ="right">
-                                <!-- 체크박스로 선택 됐는지 안됐는지 확인 바뀔떄마다 changeCheckBox이벤트 발생 -->
-                                <input class="hidden" type="checkbox" id="star1" onchange="changeCheckBox(event)">
-                                <!-- label을 사용하여 input을 선택 가능 -->
-                                <label class="bi-star" for="star1" style="cursor:pointer;"></label>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-            </div>
+        </div>
         </section>
     </body>
-
         <!-- Footer-->
         <footer id = "tr_ft">
         <footer class="py-5 bg-dark">
