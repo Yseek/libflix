@@ -25,6 +25,7 @@
                             <li><form name="menu_top_rank" action="top_rank"><a class= "dropdown-item" href="#" onclick="menu_top_rank.submit()">TOP 10</a></form></li>
                             <li><form name="menu_favorite" action="myfavorite"><a id="menu_favor" class="dropdown-item" href="#">My Favorites</a></form></li>
                         </ul>
+                        <li class="nav-item"><form name="menu_main" action="index"><a class= "nav-link active" aria-current="page" href="#" onclick="menu_main.submit()" style = "margin-bottom: 1px; margin-left: 312px"><img src = "{% static 'img\realLogo.png' %}"></a></form></li>
                     </li>
                 </ul>
                 <form name="login_menu" class="d-flex" action="{{request.session.button_dir}}">

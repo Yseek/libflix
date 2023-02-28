@@ -24,7 +24,7 @@
     <div class="container px-3 px-lg-3 my-4">
         <div class="text-center text-white">
             {%load static%}
-            <center><a href="#"><img src = "{% static 'imgs\board-logo.png' %}"></a>
+            <center><a href="#"><img src = "{% static 'img\ReviseLogo.png' %}"></a>
             {% comment %} <p class="lead fw-normal text-white-50 mb-0">Let's talk about your story with LIBFLIX</p></center> {% endcomment %}
         </div>
         </div>
@@ -37,10 +37,8 @@
         <center>
         <table width="500" height="400">
             <tr>
-                <td width="70%" height="10%"><font style = "color: white;">Title: <input name="title" value="{{update_content.postname}}"></font></td>
-            </tr>
-            <tr>
-                <td width="70%" height="10%"><font style = "color: white;">Pwd: <input name="pwd" placeholder="SECRET POST when input"></font></td>
+                {% comment %} <td width="70%" height="10%"><font style = "color: white;">Title<input name="title" value="{{update_content.postname}}"></font></td> {% endcomment %}
+                <td><div class="title_margin"><a class="btn" style="background:white; width:90px; height:40px; margin-bottom: 4px">Title</a>&nbsp;<input name="title" value="{{update_content.postname}}" style = "height:40px;"></div></td>
             </tr>
             <tr>
                 <td width="90%" height="70%"><textarea class="textfield" name="textfield" style = "background: white">{{update_content.contents}}</textarea></td>
@@ -51,8 +49,8 @@
         {% comment %} <div style="margin-top: 1%; margin-right: 512px; float: right"><input type="button" value="cancle" onclick="history.back()" ></div> {% endcomment %}
         {% comment %} <div style="margin-top: 1%; margin-right: 15px; float: right"><input type="button" value="revise" onclick="f.submit()"></div> {% endcomment %}
 
-        <div style="margin-top: 1%; margin-right: 711px; float: right"><form action="update" method="get"><input type="hidden" name="cancle" value="cancle"><button class="btn mt-auto" type="submit" style = "background: white;">cancle</button></form></div>
-        <div style="margin-top: 1%; margin-right: 15px; float: right"><input type="hidden" value="revise"><button class="btn mt-auto" type="submit" style = "background: white;">revise</button></div>
+        <div style="margin-top: 1%; margin-right: 703px; float: right"><form action="update" method="get"><input type="hidden" name="cancle" value="cancle"><button class="btn mt-auto" type="submit" style = "background: white;">Cancle</button></form></div>
+        <div style="margin-top: 1%; margin-right: 15px; float: right"><input type="hidden" value="revise"><button class="btn mt-auto" type="submit" style = "background: white;">Revise</button></div>
 
     </form>
 </div>

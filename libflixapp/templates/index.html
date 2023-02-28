@@ -20,8 +20,11 @@
         }
 
         #bg{
-            background: url("{% static 'img\bg.png' %}")
+            background: url("{% static 'img\bg.png' %}");
+            height: 100vh;
+            
         }
+
 
     </style>
     <body>
@@ -29,7 +32,7 @@
         <div id = "body-wrapper">
             <div id = "body-content">
         {% include "top.html" %}
-        <!-- Header-->
+        {% comment %} <!-- Header-->
         <header class="bg-dark py-4">
             <div class="container px-3 px-lg-4 my-4">
                 <div class="text-center text-white">
@@ -38,7 +41,7 @@
                     <p class="lead fw-normal text-white-50 mb-0">Life is Beautiful with LIBFLIX</p>
                 </div>
             </div>
-        </header>
+        </header> {% endcomment %}
         <!-- Section-->
         <section id = "bg">
         <section class="py-5">
@@ -49,7 +52,7 @@
                         <div class="card h-100">
                             <!-- Movie image-->
                             {%load static%}
-                            <img class="card-img-top" src="{{movie.moviethum}}" alt="..." />
+                            <img class="card-img-top" src="{{movie.moviethum}}" alt="..." />                   
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -148,4 +151,5 @@
             }
         })
     </script>
+
 </html>
