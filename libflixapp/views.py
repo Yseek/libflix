@@ -10,7 +10,7 @@ def index(request):
         return render(request,'index.html',res_data)
     else:
         request.session['nick'] = ""
-        request.session['button_name'] = "로그인"
+        request.session['button_name'] = "Login"
         request.session['button_dir'] = 'top_login__'
         res_data['movie_info']=Movies.objects.all()
         print(res_data['movie_info'])
@@ -18,9 +18,12 @@ def index(request):
 
 def play(request):
     x=request.GET['first']
-    print(x)
     res_data={}
+    movie_count=Movies.objects.get(title=x)
+    movie_count.count +=1
+    movie_count.save()
     res_data['movies']=Movies.objects.get(title=x)
+    print(Movies.objects.get(title=x).count)
     return render(request,'play.html',res_data)
     
 def myfavorite(request):
@@ -102,7 +105,7 @@ def login_ok(request):
         if login_.pwd== y:
             request.session['login_'] = login_.email
             request.session['nick'] = login_.nickname
-            request.session['button_name'] = "로그아웃"
+            request.session['button_name'] = "Logout"
             request.session['button_dir'] = "logout_"
             return redirect('index')
         else:
@@ -137,14 +140,16 @@ def logout(request):
     return redirect('index')  
 
 def top_rank(request):
-    return render(request,'top_rank.html')
+    res_data={}
+    res_data['movie_info']=Movies.objects.all().order_by('-count')[:10]
+    return render(request,'top_rank.html',res_data)
 
 def top(request):
     if  request.session.get('login_') is not None:
         return render(request,'index.html')
     else:
         request.session['nick'] = ""
-        request.session['button_name'] = "로그인"
+        request.session['button_name'] = "Login"
         request.session['button_dir'] = "top_login"
         return render(request,'index.html')
     
