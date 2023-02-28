@@ -21,6 +21,21 @@
                 bottom: 0;
                 left: 0;
             }
+            .title_margin{
+                margin-top:20px; 
+                margin-bottom:15px; 
+                margin-bottom:15px; 
+                margin-right:5px; 
+                float:left; 
+                margin-left:680px;
+              }
+            
+              .bg_textarea{
+                background-color:white; 
+                width:550px; 
+                height:380px;
+              }
+              
         </style>
     </head>
     <body id="body2">
@@ -39,11 +54,11 @@
                 <section id = "bg2">
                     <form name="f" action="write_ok" method="post">
                     {% csrf_token %}
-                    <div class="title_margin"><a class="btn" style="background:white; width:90px">제목</a></div>
-                    <div style="margin-bottom:15px;"><input name="title" style="height:38px; margin-top:10px;"></div>
+                    <div class="title_margin"><a class="btn" style="background:white; width:90px">Subject</a></div>
+                    <div style="margin-bottom:15px;"><input name="title" style="height:38px; margin-top:20px;"placeholder="제목을 입력하세요"></div>
                     <center>
-                        <div><textarea id="txtArea" class="bg_textarea" name="textfield" onkeypress="onTestChange()"></textarea></div>
-                        <input "input_back_margin" type="button" value="Write" onclick="f.submit()">
+                        <div><textarea class="bg_textarea" name="textfield"></textarea></div>
+                        <input class="input_back_margin" type="button" value="Write" onclick="f.submit()">
                         <input class="input_back_margin" type="button" value="Back" onclick="history.back()">
                     </center>
                 </section>
