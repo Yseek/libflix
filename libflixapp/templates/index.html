@@ -96,9 +96,50 @@
         <section id = "bg2">
             <section class="py-5">
                 <main>
+                    <!-- 추천 -->
+                    <hr class="hr-dotted">
+                    <h2 class="title">'{{request.session.nick}}'님의 취향저격 컨텐츠</h2>
+                    <div class="list">
+                        {% for movie, movie2 in movie_recommed %}
+                        <figure>
+                            <!-- Movie image, watch-->
+                            <form class="form_cls8" name="{{forloop.counter}}" action="play" method="get">
+                                <input class="input8" id="{{forloop.counter0}}" type="hidden" value="{{movie.title}}" name="first">
+                                <div class="box-wrap">
+                                    <div class="box scale">
+                                        <div class="img">
+                                            <a class="btn btn-outline-dark mt-auto8" href="#" style="padding:0px; border:0;"><img class="card-img-top"src="{{movie.moviethum}}" alt="..." /></a>
+                                        </div>
+                                        <div class="info" style="padding:0px; padding-bottom:10px;border:0;">
+                                            <h3>{{movie.title}}</h3>
+                                            <center><span>{{movie.genre}} / </span><span>{{movie.director}} / </span><span>{{movie.grade}}</span></center>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </figure>
+                        <figure>
+                            <!-- Movie image, watch-->
+                            <form class="form_cls9" name="{{forloop.counter}}" action="play" method="get">
+                                <input class="input9" id="{{forloop.counter0}}" type="hidden" value="{{movie2.title}}" name="first">
+                                <div class="box-wrap">
+                                    <div class="box scale">
+                                        <div class="img">
+                                            <a class="btn btn-outline-dark mt-auto9" href="#" style="padding:0px; border:0;"><img class="card-img-top"src="{{movie2.moviethum}}" alt="..." /></a>
+                                        </div>
+                                        <div class="info" style="padding:0px; padding-bottom:10px;border:0;">
+                                            <h3>{{movie2.title}}</h3>
+                                            <center><span>{{movie2.genre}} / </span><span>{{movie2.director}} / </span><span>{{movie2.grade}}</span></center>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </figure>
+                        {% endfor %}
+                    </div>
                     <!-- 시청기록 -->
                     <hr class="hr-dotted">
-                    <h2 class="title">시청기록</h2>
+                    <h2 class="title">'{{request.session.nick}}'님의 시청기록</h2>
                     <div class="list">
                         {% for movie in movie_viewd reversed %}
                         <figure>
