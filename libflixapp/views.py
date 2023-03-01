@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from . models import NoticeBoard, Member,Movies,MyFavoriteList ,MyViewingHistory
 import datetime
-
+from collections import Counter
 
 def index(request):
     res_data={}
@@ -13,9 +13,16 @@ def index(request):
         res_data['movie_info_roman']=Movies.objects.filter(genre='로맨스').all()
         res_data['movie_info_ani']=Movies.objects.filter(genre='애니메이션').all()
         res_data['movie_viewd']=[]
+        recommend_list=[]
         for x in MyViewingHistory.objects.filter(email=request.session.get('login_')):
             res_data['movie_viewd'].append(Movies.objects.get(id=x.moive_num_id))
-        return render(request,'index.html',res_data)
+        for y in res_data['movie_viewd']:
+            recommend_list.append(y.genre)
+        try:
+            res_data['movie_recommed']=zip(Movies.objects.filter(genre=Counter(recommend_list).most_common(n=2)[0][0])[:5],Movies.objects.filter(genre=Counter(recommend_list).most_common(n=2)[1][0])[:5])
+            return render(request,'index.html',res_data)        
+        except:
+            return render(request,'index.html',res_data)
     else:
         request.session['nick'] = ""
         request.session['button_name'] = "Login"
@@ -26,9 +33,6 @@ def index(request):
         res_data['movie_info_sf_fan']=Movies.objects.filter(genre='SF/판타지').all()
         res_data['movie_info_roman']=Movies.objects.filter(genre='로맨스').all()
         res_data['movie_info_ani']=Movies.objects.filter(genre='애니메이션').all()
-        res_data['movie_viewd']=[]
-        for x in MyViewingHistory.objects.filter(email=request.session.get('login_')):
-            res_data['movie_viewd'].append(Movies.objects.get(id=x.moive_num_id))
         return render(request,'index.html',res_data)
 
 def play(request):
