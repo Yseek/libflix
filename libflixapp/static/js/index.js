@@ -92,3 +92,14 @@ document.querySelectorAll('.input6').forEach(e =>{
         }
     }
 })
+
+document.querySelectorAll('.input7').forEach(e =>{
+    document.getElementsByClassName("btn btn-outline-dark mt-auto7")[e.id].onclick = user_check;
+    function user_check(){
+        if(("{{request.session.login_}}").length==0){
+            location.href="top_login__";
+        }else{
+            document.getElementsByClassName("form_cls7")[e.id].submit();
+        }
+    }
+})

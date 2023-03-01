@@ -32,3 +32,7 @@ class Movies(models.Model):
 class MyFavoriteList(models.Model):
     email = models.ForeignKey('Member', on_delete=models.CASCADE)
     moive_num = models.ForeignKey('Movies', on_delete=models.CASCADE)
+
+class MyViewingHistory(models.Model):
+    email = models.ForeignKey('Member', on_delete=models.CASCADE)
+    moive_num = models.ForeignKey('Movies', on_delete=models.CASCADE)
