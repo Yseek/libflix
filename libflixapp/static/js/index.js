@@ -103,3 +103,25 @@ document.querySelectorAll('.input7').forEach(e =>{
         }
     }
 })
+
+document.querySelectorAll('.input8').forEach(e =>{
+    document.getElementsByClassName("btn btn-outline-dark mt-auto8")[e.id].onclick = user_check;
+    function user_check(){
+        if(("{{request.session.login_}}").length==0){
+            location.href="top_login__";
+        }else{
+            document.getElementsByClassName("form_cls8")[e.id].submit();
+        }
+    }
+})
+
+document.querySelectorAll('.input9').forEach(e =>{
+    document.getElementsByClassName("btn btn-outline-dark mt-auto9")[e.id].onclick = user_check;
+    function user_check(){
+        if(("{{request.session.login_}}").length==0){
+            location.href="top_login__";
+        }else{
+            document.getElementsByClassName("form_cls9")[e.id].submit();
+        }
+    }
+})
