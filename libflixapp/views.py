@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from . models import NoticeBoard, Member,Movies,MyFavoriteList
+from . models import NoticeBoard, Member,Movies,MyFavoriteList ,MyViewingHistory
 import datetime
 
 
@@ -12,6 +12,9 @@ def index(request):
         res_data['movie_info_sf_fan']=Movies.objects.filter(genre='SF/판타지').all()
         res_data['movie_info_roman']=Movies.objects.filter(genre='로맨스').all()
         res_data['movie_info_ani']=Movies.objects.filter(genre='애니메이션').all()
+        res_data['movie_viewd']=[]
+        for x in MyViewingHistory.objects.filter(email=request.session.get('login_')):
+            res_data['movie_viewd'].append(Movies.objects.get(id=x.moive_num_id))
         return render(request,'index.html',res_data)
     else:
         request.session['nick'] = ""
@@ -23,11 +26,25 @@ def index(request):
         res_data['movie_info_sf_fan']=Movies.objects.filter(genre='SF/판타지').all()
         res_data['movie_info_roman']=Movies.objects.filter(genre='로맨스').all()
         res_data['movie_info_ani']=Movies.objects.filter(genre='애니메이션').all()
+        res_data['movie_viewd']=[]
+        for x in MyViewingHistory.objects.filter(email=request.session.get('login_')):
+            res_data['movie_viewd'].append(Movies.objects.get(id=x.moive_num_id))
         return render(request,'index.html',res_data)
 
 def play(request):
     x=request.GET['first']
     res_data={}
+    res_data['my_viewed_movie']=MyViewingHistory.objects.filter(email=request.session.get('login_'))
+    res_data['viewd']=[]
+    for i in res_data['my_viewed_movie']:
+        res_data['viewd'].append(Movies.objects.get(pk=i.moive_num_id).title)
+    if x not in res_data['viewd']:
+        MyViewingHistory(email_id=request.session.get('login_'), moive_num_id=Movies.objects.get(title=x).pk).save()
+    elif x in res_data['viewd']:
+        MyViewingHistory.objects.get(moive_num_id=Movies.objects.get(title=x).pk,email_id=request.session.get('login_')).delete()
+        MyViewingHistory(email_id=request.session.get('login_'), moive_num_id=Movies.objects.get(title=x).pk).save()
+    else:
+        pass
     movie_count=Movies.objects.get(title=x)
     movie_count.count +=1
     movie_count.save()

@@ -96,6 +96,30 @@
         <section id = "bg2">
             <section class="py-5">
                 <main>
+                    <!-- 시청기록 -->
+                    <hr class="hr-dotted">
+                    <h2 class="title">시청기록</h2>
+                    <div class="list">
+                        {% for movie in movie_viewd reversed %}
+                        <figure>
+                            <!-- Movie image, watch-->
+                            <form class="form_cls7" name="{{forloop.counter}}" action="play" method="get">
+                                <input class="input7" id="{{forloop.counter0}}" type="hidden" value="{{movie.title}}" name="first">
+                                <div class="box-wrap">
+                                    <div class="box scale">
+                                        <div class="img">
+                                            <a class="btn btn-outline-dark mt-auto7" href="#" style="padding:0px; border:0;"><img class="card-img-top"src="{{movie.moviethum}}" alt="..." /></a>
+                                        </div>
+                                        <div class="info" style="padding:0px; padding-bottom:10px;border:0;">
+                                            <h3>{{movie.title}}</h3>
+                                            <center><span>{{movie.genre}} / </span><span>{{movie.director}} / </span><span>{{movie.grade}}</span></center>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </figure>
+                        {% endfor %}
+                    </div>
                     <!-- 액션 -->
                     <hr class="hr-dotted">
                     <h2 class="title">액션</h2>
