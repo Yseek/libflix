@@ -21,6 +21,26 @@
         <script src="{% static 'js/index.js' %}" defer></script>
     </head>
     <style>
+
+        #bg_SM{
+            background: url('{% static "img/screen.png" %}');
+            height: 200vh;
+        }
+
+        #bd_wrapper{
+            height: auto;
+            min-height: 100%;
+            padding-bottom: 300px;
+            position: relative;
+          }
+
+        #footer{
+            width:100%;
+            position: relative;
+            bottom: 0;
+            left: 0;
+          }
+
         .hidden {
             display: none;
         } 
@@ -93,107 +113,18 @@
     </style>
     <body>
         {% include "top.html" %}
-        <section id = "bg2">
-            <section class="py-5">
+        <section id = "bg_SM">
+                <div id = "bd_wrapper">
                 <main>
                     <!-- 로그인일 때만 보여주기-->
                     {%if request.session.login_%}
-                    <!-- 추천 -->
+                    {% endif %}
+                    <!-- 검색 결과 -->
+                    <h2 class="title">{{request.session.nick}}'님, 검색결과 입니다!</h2>
                     <hr class="hr-dotted">
-                    <h2 class="title">'{{request.session.nick}}'님의 취향저격 컨텐츠</h2>
                     <div class="list">
-                        {% for movie, movie2 in movie_recommed %}
-                        <figure>
-                            <!-- Movie image, watch-->
-                            <form class="form_cls8" name="{{forloop.counter}}" action="play" method="get">
-                                <input class="input8" id="{{forloop.counter0}}" type="hidden" value="{{movie.title}}" name="first">
-                                <div class="box-wrap">
-                                    <div class="box scale">
-                                        <div class="img">
-                                            <a class="btn btn-outline-dark mt-auto8" href="#" style="padding:0px; border:0;"><img class="card-img-top"src="{{movie.moviethum}}" alt="..." /></a>
-                                        </div>
-                                        <div class="info" style="padding:0px; padding-bottom:10px;border:0;">
-                                            <h3>{{movie.title}}</h3>
-                                            <center><span>{{movie.genre}} / </span><span>{{movie.director}} / </span><span>{{movie.grade}}</span></center>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </figure>
-                        <figure>
-                            <!-- Movie image, watch-->
-                            <form class="form_cls9" name="{{forloop.counter}}" action="play" method="get">
-                                <input class="input9" id="{{forloop.counter0}}" type="hidden" value="{{movie2.title}}" name="first">
-                                <div class="box-wrap">
-                                    <div class="box scale">
-                                        <div class="img">
-                                            <a class="btn btn-outline-dark mt-auto9" href="#" style="padding:0px; border:0;"><img class="card-img-top"src="{{movie2.moviethum}}" alt="..." /></a>
-                                        </div>
-                                        <div class="info" style="padding:0px; padding-bottom:10px;border:0;">
-                                            <h3>{{movie2.title}}</h3>
-                                            <center><span>{{movie2.genre}} / </span><span>{{movie2.director}} / </span><span>{{movie2.grade}}</span></center>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </figure>
-                        {% endfor %}
-                        {% endif %}
-                    </div>
-                    <!-- 시청기록 -->
-                    {%if request.session.login_%}
-                    <hr class="hr-dotted">
-                    <h2 class="title">'{{request.session.nick}}'님의 시청기록</h2>
-                    <div class="list">
-                        {% for movie in movie_viewd reversed %}
-                        <figure>
-                            <!-- Movie image, watch-->
-                            <form class="form_cls7" name="{{forloop.counter}}" action="play" method="get">
-                                <input class="input7" id="{{forloop.counter0}}" type="hidden" value="{{movie.title}}" name="first">
-                                <div class="box-wrap">
-                                    <div class="box scale">
-                                        <div class="img">
-                                            <a class="btn btn-outline-dark mt-auto7" href="#" style="padding:0px; border:0;"><img class="card-img-top"src="{{movie.moviethum}}" alt="..." /></a>
-                                        </div>
-                                        <div class="info" style="padding:0px; padding-bottom:10px;border:0;">
-                                            <h3>{{movie.title}}</h3>
-                                            <center><span>{{movie.genre}} / </span><span>{{movie.director}} / </span><span>{{movie.grade}}</span></center>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </figure>
-                        {% endfor %}
-                        {% endif %}
-                    </div>
-                    <!-- 액션 -->
-                    <hr class="hr-dotted">
-                    <h2 class="title">액션</h2>
-                    <div class="list">
-                        {% for movie in movie_info_action %}
-                        <figure>
-                            <!-- Movie image, watch-->
-                            <form class="form_cls1" name="{{forloop.counter}}" action="play" method="get">
-                                <input class="input1" id="{{forloop.counter0}}" type="hidden" value="{{movie.title}}" name="first">
-                                <div class="box-wrap">
-                                    <div class="box scale">
-                                        <div class="img">
-                                            <a class="btn btn-outline-dark mt-auto1" href="#" style="padding:0px; border:0;"><img class="card-img-top"src="{{movie.moviethum}}" alt="..." /></a>
-                                        </div>
-                                        <div class="info" style="padding:0px; padding-bottom:10px;border:0;">
-                                            <h3>{{movie.title}}</h3>
-                                            <center><span>{{movie.genre}} / </span><span>{{movie.director}} / </span><span>{{movie.grade}}</span></center>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </figure>
-                        {% endfor %}
-                    </div>
-                    <!-- 코미디 -->
-                    <hr class="hr-dotted">
-                    <h2 class="title">코미디</h2>
-                    <div class="list">
+                        <div class="container px-4 px-lg-5 mt-5" style =>
+                        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                         {% for movie in searched_list %}
                         <figure>
                             <!-- Movie image, watch-->
@@ -210,108 +141,17 @@
                                         </div>
                                     </div>
                                 </div>
+                            
                             </form>
                         </figure>
                         {% endfor %}
                     </div>
-                    <!-- 공포 -->
-                    <hr class="hr-dotted">
-                    <h2 class="title">공포</h2>
-                    <div class="list">
-                        {% for movie in movie_info_horror %}
-                        <figure>
-                            <!-- Movie image, watch-->
-                            <form class="form_cls3" name="{{forloop.counter}}" action="play" method="get">
-                                <input class="input3" id="{{forloop.counter0}}" type="hidden" value="{{movie.title}}" name="first">
-                                <div class="box-wrap">
-                                    <div class="box scale">
-                                        <div class="img">
-                                            <a class="btn btn-outline-dark mt-auto3" href="#" style="padding:0px; border:0;"><img class="card-img-top"src="{{movie.moviethum}}" alt="..." /></a>
-                                        </div>
-                                        <div class="info" style="padding:0px; padding-bottom:10px;border:0;">
-                                            <h3>{{movie.title}}</h3>
-                                            <center><span>{{movie.genre}} / </span><span>{{movie.director}} / </span><span>{{movie.grade}}</span></center>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </figure>
-                        {% endfor %}
+                </div>                
                     </div>
-                    <!-- SF / 판타지 -->
-                    <hr class="hr-dotted">
-                    <h2 class="title">SF / 판타지</h2>
-                    <div class="list">
-                    {% for movie in movie_info_sf_fan %}
-                        <figure>
-                            <!-- Movie image, watch-->
-                            <form class="form_cls4" name="{{forloop.counter}}" action="play" method="get">
-                                <input class="input4" id="{{forloop.counter0}}" type="hidden" value="{{movie.title}}" name="first">
-                                <div class="box-wrap">
-                                    <div class="box scale">
-                                        <div class="img">
-                                            <a class="btn btn-outline-dark mt-auto4" href="#" style="padding:0px; border:0;"><img class="card-img-top"src="{{movie.moviethum}}" alt="..." /></a>
-                                        </div>
-                                        <div class="info" style="padding:0px; padding-bottom:10px;border:0;">
-                                            <h3>{{movie.title}}</h3>
-                                            <center><span>{{movie.genre}} / </span><span>{{movie.director}} / </span><span>{{movie.grade}}</span></center>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </figure>
-                    {% endfor %}
-                    </div>
-                    <!-- 로맨스 -->
-                    <hr class="hr-dotted">
-                    <h2 class="title">로맨스</h2>
-                    <div class="list">
-                        {% for movie in movie_info_roman %}
-                        <figure>
-                            <!-- Movie image, watch-->
-                            <form class="form_cls5" name="{{forloop.counter}}" action="play" method="get">
-                                <input class="input5" id="{{forloop.counter0}}" type="hidden" value="{{movie.title}}" name="first">
-                                <div class="box-wrap">
-                                    <div class="box scale">
-                                        <div class="img">
-                                            <a class="btn btn-outline-dark mt-auto5" href="#" style="padding:0px; border:0;"><img class="card-img-top"src="{{movie.moviethum}}" alt="..." /></a>
-                                        </div>
-                                        <div class="info" style="padding:0px; padding-bottom:10px;border:0;">
-                                            <h3>{{movie.title}}</h3>
-                                            <center><span>{{movie.genre}} / </span><span>{{movie.director}} / </span><span>{{movie.grade}}</span></center>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </figure>
-                        {% endfor %}
-                    </div>
-                    <!-- 애니메이션 -->
-                    <hr class="hr-dotted">
-                    <h2 class="title">애니메이션</h2>
-                    <div class="list">
-                        {% for movie in movie_info_ani %}
-                        <figure>
-                            <!-- Movie image, watch-->
-                            <form class="form_cls6" name="{{forloop.counter}}" action="play" method="get">
-                                <input class="input6" id="{{forloop.counter0}}" type="hidden" value="{{movie.title}}" name="first">
-                                <div class="box-wrap">
-                                    <div class="box scale">
-                                        <div class="img">
-                                            <a class="btn btn-outline-dark mt-auto6"  href="#" style="padding:0px; border:0;"><img class="card-img-top"src="{{movie.moviethum}}" alt="..." /></a>
-                                        </div>
-                                        <div class="info" style="padding:0px; padding-bottom:10px;border:0;">
-                                            <h3>{{movie.title}}</h3>
-                                            <center><span>{{movie.genre}} / </span><span>{{movie.director}} / </span><span>{{movie.grade}}</span></center>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </figure>
-                        {% endfor %}
-                    </div>
+                </div>
+            </div>
                 </main>
-            </section>
+            </div>
         </section>
     </body>
     <!-- Footer-->
