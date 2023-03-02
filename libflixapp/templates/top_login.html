@@ -35,22 +35,19 @@
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                background: rgba(255, 255, 255, 0.25);
-                box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-                backdrop-filter: blur(1.5px);
+                background:linear-gradient(to right, rgba(0,0,0,1)15%,rgba(0,0,0,0.5)50%,rgba(0,0,0,1)85%);
+                backdrop-filter: blur(2px);
                 -webkit-backdrop-filter: blur(1.5px);
-                border-radius: 10px;
-                border: 1px solid rgba(255, 255, 255, 0.18);
             }
             #modal .modal-window {
-                background: rgba( 0, 0, 0, 0.85 );
-                box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+                background: rgba( 0, 0, 0, 0.7 );
+                box-shadow: 0 0px 10px 0 rgba( 255, 213, 0, 0.5 );
                 backdrop-filter: blur( 13.5px );
                 -webkit-backdrop-filter: blur( 13.5px );
                 border-radius: 10px;
                 border: 1px solid rgba( 255, 255, 255, 0.18 );
                 width: 400px;
-                height: 500px;
+                height: 580px;
                 position: relative;
                 top: -100px;
                 padding: 10px;
@@ -73,30 +70,16 @@
                 text-shadow: 1px 1px 2px gray;
                 color: white;
             }
-            
-        #modal .title h2 {
-            display: inline;
-        }
-        #modal .close-area {
-            display: inline;
-            float: right;
-            padding-right: 10px;
-            cursor: pointer;
-            text-shadow: 1px 1px 2px gray;
-            color: white;
-        }
-        
-        #modal .content {
-            margin-top: 20px;
-            padding: 0px 10px;
-            text-shadow: 1px 1px 2px gray;
-            color: white;
-        }
-        .list{
-            display: flex;
-            justify-content: center; 
-            gap: 8px;
-        }
+            #modal .content {
+                margin-top: 80px;
+                padding: 0px 10px;
+                color: #ffe34c
+            }
+            .list{
+                display: flex;
+                justify-content: center; 
+                gap: 8px;
+            }
         
     </style>
 </head>
@@ -106,10 +89,10 @@
     </div>
     <div id="modal" class="modal-overlay">
         <div class="modal-window">
+            <div class="close-area"><a href="#" onclick="location.href=document.referrer"style="text-decoration-line:none; color:#ffe34c">X</a></div>
             <div class="title">
                 <center><h1>LOGIN</h1></center>
             </div>
-            <div class="close-area"><a href="#" onclick="location.href=document.referrer">X</a></div>
             <div class="content">
                 <form name="lo" action="login_ok" method="post">
                 {% csrf_token %}
@@ -119,8 +102,8 @@
                             <td><h4>{{error}}</h2></td>
                         </tr>
                         <tr>
-                            <th>아이디(Email)</th>
-                            <td><input name="email" onkeydown="enterCheck(this)"></td>
+                            <th style="padding-bottom:20px">아이디(Email)</th>
+                            <td style="padding-bottom:20px"><input name="email" onkeydown="enterCheck(this)"></td>
                         </tr>
                         <tr>
                             <th>비밀번호</th>
