@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from . models import NoticeBoard, Member,Movies,MyFavoriteList ,MyViewingHistory
 import datetime
 from collections import Counter
+from django.http import JsonResponse
 
 def index(request):
     res_data={}
@@ -214,3 +215,10 @@ def search(request):
     res_data={}
     res_data['postlist']=NoticeBoard.objects.filter(postname__contains=x)
     return render(request,'board.html',res_data)
+
+def search_movie(request):
+    res_data={}
+    x=request.GET['s']
+    request.session['type']=x
+    res_data['searched_list']=Movies.objects.filter(title__contains=x)
+    return render(request,'searched_movie.html',res_data)
