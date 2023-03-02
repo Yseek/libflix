@@ -97,6 +97,7 @@
             <section class="py-5">
                 <main>
                     <!-- 추천 -->
+                    {%if request.session.login_%}
                     <hr class="hr-dotted">
                     <h2 class="title">'{{request.session.nick}}'님의 취향저격 컨텐츠</h2>
                     <div class="list">
@@ -136,8 +137,10 @@
                             </form>
                         </figure>
                         {% endfor %}
+                        {% endif %}
                     </div>
                     <!-- 시청기록 -->
+                    {%if request.session.login_%}
                     <hr class="hr-dotted">
                     <h2 class="title">'{{request.session.nick}}'님의 시청기록</h2>
                     <div class="list">
@@ -160,6 +163,7 @@
                             </form>
                         </figure>
                         {% endfor %}
+                        {% endif %}
                     </div>
                     <!-- 액션 -->
                     <hr class="hr-dotted">
