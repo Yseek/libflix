@@ -14,7 +14,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'css/styles_cej.css' %}" rel="stylesheet" />
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
         <link rel="stylesheet" href="{% static 'css/index.css' %}" />
@@ -194,7 +194,7 @@
                     <hr class="hr-dotted">
                     <h2 class="title">코미디</h2>
                     <div class="list">
-                        {% for movie in movie_info_comedy %}
+                        {% for movie in searched_list %}
                         <figure>
                             <!-- Movie image, watch-->
                             <form class="form_cls2" name="{{forloop.counter}}" action="play" method="get">
