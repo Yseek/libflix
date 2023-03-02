@@ -10,48 +10,28 @@
     <!-- Favicon-->
     <link rel="shortcut icon" href="{% static 'imgs/favicon.ico' %}" />
 </head>
-
-
 <body>
     {% include "top.html" %}
     <!-- Header-->
-        <div id = "body-wrapper">
-        <div id = "body-content">
-        <section id = "bg2">
-            <br><br>
-            <style>
-            table {
-                width: 60%;
-                color: white;
-                border-radius: 20px;
-            }
-
-            thead{
-                padding: 10px
-            }
-
-            th, td {
-                padding: 10px
-            }
-            </style>
+    <section id = "bg2">
+        <section class="py-5">
             <center>
-            <table class = "bg-dark" style = "margin-bottom: 25px">
-            <thead>
+            <table class = "bg-dark" style = "margin-bottom: 25px; width:60%;color:white; border-radius:20px">
+            <thead style = "pading:10px">
                 <tr>
-                    <th scope="col"><center>번호</center></th>
-                    <th scope="col"><center>제목</center></th>
-                    <th scope="col">글쓴이</th>
-                    <th scope="col"><center>작성일</center></th>
+                    <th scope="col"style="padding:10px"><center>번호</center></th>
+                    <th scope="col"style="padding:10px"><center>제목</center></th>
+                    <th scope="col"style="padding:10px">글쓴이</th>
+                    <th scope="col"style="padding:10px"><center>작성일</center></th>
                 </tr>
             </thead>
-
             <tbody>
                 {% for list in postlist %}
                 <tr>
-                    <td><center>{{list.id}}</center></td>
-                    <td><form action="boardcontent" method="get"><input type="hidden" name="list_id" value="{{list.id}}"><a href="boardcontent?list_id={{list.id}}" style="color: white; text-decoration:none";>{{list.postname}}</a></form></td>
-                    <td>{{list.writer}}</td>
-                    <td><center>{{list.rdate}}</center></td>
+                    <td style="padding:10px"><center>{{list.id}}</center></td>
+                    <td style="padding:10px"><form action="boardcontent" method="get"><input type="hidden" name="list_id" value="{{list.id}}"><a href="boardcontent?list_id={{list.id}}" style="color: white; text-decoration:none";>{{list.postname}}</a></form></td>
+                    <td style="padding:10px">{{list.writer}}</td>
+                    <td style="padding:10px"><center>{{list.rdate}}</center></td>
                 </tr>
                 {% endfor %}
             </tbody>
