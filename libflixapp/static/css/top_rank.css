@@ -19,16 +19,9 @@
   }
   
   .list {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8PX;
     margin-bottom: 48px;
   }
   
-  .list figure {
-    width: auto !important;
-  }
 
   .list figure img {
     width: 100%;
