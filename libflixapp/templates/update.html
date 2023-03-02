@@ -19,18 +19,10 @@
     <div id = "update-wrapper">
         <div id = "update-contents">    
     {% include "top.html" %}
-    <!-- Header-->
-    <header class="bg-dark py-2">
-    <div class="container px-3 px-lg-3 my-4">
-        <div class="text-center text-white">
-            {%load static%}
-            <center><a href="#"><img src = "{% static 'img\ReviseLogo.png' %}"></a>
-        </div>
-        </div>
-    </header>
-<br>
-    <h3><font style = "color: white;"><center><b>Revise Your post</b></center></font></h3>
-    <hr>
+    
+<br><br><br><br>
+    {% comment %} <h3><font style = "color: white;"><center><b>Revise Your post</b></center></font></h3>
+    <hr> {% endcomment %}
     <form name="f" action="update_ok/{{update_content.id}}" method="post">
     {% csrf_token %}
         <center>
