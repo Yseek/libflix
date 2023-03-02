@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Top Page</title>
     <link href="{% static 'css/styles_yun.css' %}" rel="stylesheet" />
+    <script src="https://unpkg.com/hangul-js" type="text/javascript"></script>
     <style>
         .search {
   position: relative;
@@ -49,9 +50,9 @@ input {
                         <li class="nav-item"><a class= "nav-link active" aria-current="page" href="#" onclick="menu_main.submit()" style = "margin-bottom: 1px; margin-left: 312px"><img src = "{% static 'img\realLogo.png' %}"></a></li>
                     </li>
                 </ul>
-                <form action="">
+                <form name="movie_search" method="get" action="search_movie">
                     <span class="search">
-                        <input type="text" placeholder="영화제목">
+                            <input id="write" type="search" name="s" placeholder="영화제목" value="{{request.session.type}}" onkeypress="enterCheck(this)">
                     </span>
                 </form>
                 <form name="login_menu" class="d-flex" action="{{request.session.button_dir}}">
