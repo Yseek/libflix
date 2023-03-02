@@ -10,38 +10,22 @@
     <!-- Favicon-->
     <link rel="shortcut icon" href="{% static 'imgs/favicon.ico' %}" />
 </head>
-<style>
-    table {
-        width: 60%;
-        border-radius: 20px;
-    }
-
-    thead{
-        padding: 10px
-    }
-
-    td {
-        padding: 10px
-    }
-
-</style>
 <body id = "bady">
     {% include "top.html" %}
     <!-- Header-->
-    <div id = "bd-wrapper">
-        <div id = "bd-content"> 
-    <br><br><br>
+    <section id = "bg2" style="height:100vh">
+        <section class="py-5">
     <!-- section: table-->
-    <div style = "margin-top: 50px;">
-    <table class = "bg-dark" style = "margin-bottom: 25px" align = "center">
-        <thead>
+    <div style = "margin-top: 25px;">
+    <table class = "bg-dark" style = "margin-bottom: 25px; width:60%; border-radius:20px" align = "center">
+        <thead style="padding:10px">
             <tr>
                 <td><center><font style = "font-size: 30px; color: white; font-weight: bold;">{{content.postname}}</font></center></td>
             </tr>
         </thead>
         <tbody>
             <tr>
-            <td><font style = "color: white;"><pre>{{content.contents}}</pre></font></td>
+            <td style="padding:10px"><font style = "color: white;"><pre>{{content.contents}}</pre></font></td>
             </tr>
         </tbody>
     </table>        
