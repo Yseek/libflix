@@ -28,18 +28,11 @@
 <body id = "bady">
     {% include "top.html" %}
     <!-- Header-->
-    <header class="bg-dark py-2">
-    <div class="container px-3 px-lg-3 my-4">
-        <div class="text-center text-white">
-            {%load static%}
-            <center><a href="board"><img src = "{% static 'img\postLogo.png' %}"></a>
-        </div>
-        </div>
-    </header>
     <div id = "bd-wrapper">
         <div id = "bd-content"> 
     <br><br><br>
     <!-- section: table-->
+    <div style = "margin-top: 50px;">
     <table class = "bg-dark" style = "margin-bottom: 25px" align = "center">
         <thead>
             <tr>
@@ -57,16 +50,16 @@
     <div style="margin-right: 385px; float: right"><form action="delete" method="get"><input type="hidden" name="delete_" value="{{content.id}}"><button class="btn mt-auto" type="submit" style = "background: white;">Delete</button></form></div>
     <div style="margin-right: 15px; float: right"><form action="update" method="get"><input type="hidden" name="update_" value="{{content.id}}"><a class="btn mt-auto" href ="update?update_={{content.id}}" style = "background: white;">Revise</a></form></div>
     <div style="margin-right: 15px; float: right"><a class="btn mt-auto" href ="board?" style = "background: white;">List</a></div>
-    <br><br><br><br><br><br><br><br>
-    </center>
+    </center><br><br><br><br><br><br><br><br>
 </body>
+</div>
 </div>
     <!-- Footer-->
     
     <footer id = "BCfooter">
     <footer class="py-5 bg-dark">
         <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Fantastic4's Website 2023</p>
+            <p class="m-0 text-center text-white">&copy; Fantastic4's Website 2023</p>
         </div>
     </footer>
     </div>
