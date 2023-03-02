@@ -96,6 +96,8 @@
         <section id = "bg2">
             <section class="py-5">
                 <main>
+                     <!-- 로그인일 때만 보여주기-->
+                    {%if request.session.login_%}
                     <!-- 추천 -->
                     <hr class="hr-dotted">
                     <h2 class="title">'{{request.session.nick}}'님의 취향저격 컨텐츠</h2>
@@ -136,8 +138,10 @@
                             </form>
                         </figure>
                         {% endfor %}
+                        {% endif %}
                     </div>
                     <!-- 시청기록 -->
+                    {%if request.session.login_%}
                     <hr class="hr-dotted">
                     <h2 class="title">'{{request.session.nick}}'님의 시청기록</h2>
                     <div class="list">
@@ -160,6 +164,7 @@
                             </form>
                         </figure>
                         {% endfor %}
+                        {% endif %}
                     </div>
                     <!-- 액션 -->
                     <hr class="hr-dotted">
