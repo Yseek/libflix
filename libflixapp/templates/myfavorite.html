@@ -26,12 +26,13 @@
     #BDW{
         height: auto;
         min-height: 100%;
-        padding-bottom: 720px;
-        position: absoulte;
+        padding-bottom: 700px;
+        position: relative;
     }
     
         #BDC{
         margin-top: 0%;
+        margin-bottom: 0%;
         }
 
         #footer{
@@ -161,17 +162,16 @@
                                         <form class="form_cls" name="{{forloop.counter}}" action="play" method="get">
                                             <input class="input_" id="{{forloop.counter0}}" type="hidden" value="{{movie.title}}" name="first"><a class="btn btn-outline-dark mt-auto" href="#" style="padding:0px; border:0;"><img class="scale" src= "{{movie.moviethum}}" alt="Hover Effect"/>
                                             </a></form>
-                                        <br>
+                                            <br>
                                     </div>
 
                                     <div class = "info">
-                                    <font style = "align = left; font-weight: bold; font-size: 20px;"><h5 class="fw-bolder">{{movie.title}}</h5></font>
-                                    <p><font size = "3">장르: {{movie.genre}}</font></p>
-
-                                    <div style = "float:left;"><form class="favor_cls" name="{{forloop.counter}}" action="deleteFavor" method="get">
+                                    <font class="fw-bolder" style = "align = left; font-weight: bold; font-size: 20px;">{{movie.title}}</font>
+                                    <p><font style = "font-size: 15px;">장르: {{movie.genre}}</font></p>
+                                    <p><div style = "float:left;"><form class="favor_cls" name="{{forloop.counter}}" action="deleteFavor" method="get">
                                         <input class="input2" id="{{forloop.counter0}}" type="hidden" value="{{movie.title}}" name="second">
-                                        <a id = "button" class="btn btn-outline-dark mt-auto1" href="#" style = "border-color: white;"><font id = "font">삭제</font></a>
-                                    </form>
+                                        <a id = "button" class="btn btn-outline-dark mt-auto1" href="#" style = "border-color: white;"><font id = "font" >삭제</font></a>
+                                    </form></p>
                                     </div>
                                     </div>
                                 </div>
