@@ -16,15 +16,16 @@
     </head>
     <style>
         #playBG{
-            background-image: url({% static 'img\bg.png' %});
-            height: 95vh
+            background-image: url({% static 'img\screen.png' %});
+            height: 91.6vh
         }
+
     </style>
     <body>
         {% include "top.html" %}
         <section id = "playBG">
         <center>
-            <video class="box2" style="margin-top:30px" id="thumbnail_" width="800" height="450" preload="none" controls poster="">    
+            <video class="box2" style="margin-top:75px" id="thumbnail_" width="800" height="450" preload="none" controls poster="">    
                 <source id="source_" src="" type="video/mp4">
             </video>
                 <table class="box3">
@@ -37,8 +38,8 @@
                         <th>즐겨찾기</th>
                     </tr>
                     <tr>
-                        <p>{% static 'video/조블랙의사랑.mp4' %}</p>  
-                        <p>{% static 'thumbnail/조블랙의사랑.jpg' %}</p>  url 확인용 태그
+                        <p>{% static 'video/트와일라잇3.mp4' %}</p>  
+                        <p>{% static 'thumbnail/트와일라잇3.jpg' %}</p>  url 확인용 태그
                         <td>{{movies.title}}</td>
                         <td>{{movies.grade}}</td>
                         <td>{{movies.genre}}</td>
