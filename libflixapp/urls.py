@@ -23,5 +23,4 @@ urlpatterns = [
     path('addFavor',views.addFavor, name='addFavor'),
     path('deleteFavor',views.deleteFavor,name='deleteFavor'),
     path('search',views.search,name='search'),
-
 ]
