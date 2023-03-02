@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+.slick-track {
+  width: auto !important;
+  opacity: 1;
+}
+
 main {
   width: 90%;
   margin: 0 auto;
@@ -19,7 +24,15 @@ main {
 }
 
 .list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8PX;
   margin-bottom: 48px;
+}
+
+.list figure {
+  width: auto !important;
 }
 
 .list figure img {
