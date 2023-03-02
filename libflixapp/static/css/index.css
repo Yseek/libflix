@@ -19,6 +19,7 @@ main {
 }
 
 .list {
+  justify-content:initial;
   margin-bottom: 48px;
 }
 
