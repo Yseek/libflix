@@ -1,5 +1,14 @@
 ## 한국소프트인재개발원 3차 프로젝트 [LIBflix]
 
+<p float="left">
+  <img src="https://github.com/user-attachments/assets/7fde56be-02d6-4c0f-b9c6-3c419293ac83" width="400" /> 
+  <img src="https://github.com/user-attachments/assets/24963e65-da11-4364-852b-630c897bac37" width="400" /> 
+</p>
+<p float="left">
+  <img src="https://github.com/user-attachments/assets/680ac4c1-e6a3-48bd-a361-c5957b885d50" width="400" /> 
+  <img src="https://github.com/user-attachments/assets/36d02ba9-d9b2-4040-b84f-e87dac341cdc" width="400" /> 
+</p>
+
 ## 프로젝트 목표
 
 * 새로 학습한 Python과 MVC 패턴 기반 프레임워크인 Django를 활용하여, 백엔드 개발에 대한 이해도를 높이고 실무에서 활용할 수 있도록 숙련도를 향상시키는 것이 목표입니다.
